@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "openonco": {
+      "command": "java",
+      "args": [
+        "-jar",
+        "/path/to/openonco-mcp-runner.jar"
+      ],
+      "env": {}
+    }
+  }
+}
