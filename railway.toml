@@ -1,0 +1,13 @@
+[build]
+builder = "nixpacks"
+
+[build.env]
+NIXPACKS_JDK_VERSION = "21"
+
+[deploy]
+startCommand = "java -jar target/openonco-mcp-runner.jar"
+healthcheckPath = "/q/health"
+healthcheckTimeout = 30
+
+[variables]
+QUARKUS_HTTP_PORT = "$PORT"
