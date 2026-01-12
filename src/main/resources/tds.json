@@ -11,9 +11,19 @@
     "genesAnalyzed": 324,
     "genesAnalyzedCitations": "https://www.foundationmedicine.com/test/foundationone-cdx",
     "geneListUrl": "https://www.foundationmedicine.com/test/foundationone-cdx",
-    "biomarkersReported": ["SNVs", "Indels", "CNAs", "Rearrangements", "TMB", "MSI", "HRD"],
+    "biomarkersReported": [
+      "SNVs",
+      "Indels",
+      "CNAs",
+      "Rearrangements",
+      "TMB",
+      "MSI",
+      "HRD"
+    ],
     "biomarkersReportedCitations": "https://www.foundationmedicine.com/test/foundationone-cdx",
-    "cancerTypes": ["All solid tumors"],
+    "cancerTypes": [
+      "All solid tumors"
+    ],
     "cancerTypesCitations": "https://www.foundationmedicine.com/test/foundationone-cdx",
     "targetPopulation": "Patients with advanced solid malignant neoplasms requiring genomic profiling to guide treatment decisions",
     "targetPopulationCitations": "https://www.accessdata.fda.gov/cdrh_docs/pdf17/P170019B.pdf",
@@ -26,7 +36,16 @@
     "fdaCompanionDxCountCitations": "https://www.businesswire.com/news/home/20251204680697/en/Foundation-Medicine-Achieves-Historic-Milestone-of-100-Approved-and-Active-Companion-Diagnostic-Indications-Solidifying-Leadership-in-Precision-Medicine",
     "vendorClaimsNCCNAlignment": true,
     "vendorNCCNAlignmentCitation": "https://www.foundationmedicine.com/test/foundationone-cdx",
-    "vendorNCCNAlignmentIndications": ["NSCLC", "Breast Cancer", "Colorectal Cancer", "Prostate Cancer", "Ovarian Cancer", "Melanoma", "Gastric Cancer", "Cholangiocarcinoma"],
+    "vendorNCCNAlignmentIndications": [
+      "NSCLC",
+      "Breast Cancer",
+      "Colorectal Cancer",
+      "Prostate Cancer",
+      "Ovarian Cancer",
+      "Melanoma",
+      "Gastric Cancer",
+      "Cholangiocarcinoma"
+    ],
     "vendorNCCNAlignmentNotes": "Covers biomarkers recommended by NCCN guidelines. NCCN guidelines recommend testing specific genes/biomarkers and 'broad molecular profiling' but do not endorse specific commercial assays by name.",
     "tat": "8 days",
     "tatNotes": "Typically 8 days or less from receipt of specimen.",
@@ -46,7 +65,15 @@
     "medicareStatus": "Priced",
     "medicareEffective": "2025-Q4",
     "adltStatus": true,
-    "availableRegions": ["US", "EU", "UK", "Japan", "Canada", "Australia", "International"],
+    "availableRegions": [
+      "US",
+      "EU",
+      "UK",
+      "Japan",
+      "Canada",
+      "Australia",
+      "International"
+    ],
     "availableRegionsNotes": "Available in 100+ countries via Roche global network. US lab (Cambridge, MA) and EU lab (Penzberg, Germany). Regulatory: FDA approved (US), MHLW approved (Japan, Dec 2018), CE marked (EU).",
     "availableRegionsCitations": "https://www.roche.com/media/releases/med-cor-2021-10-25 | https://www.foundationmedicine.com/press-releases/aa55275f-b849-4e31-a770-152c8e7cad8f",
     "clinicalAvailability": "Commercially available in US since 2017; available in 100+ countries via Roche affiliates",
@@ -56,7 +83,10 @@
     "numPublicationsSource": "vendor-estimate",
     "numPublicationsNotes": "Foundation Medicine tests cited in >1,000 peer-reviewed publications (vendor estimate).",
     "numPublicationsCitations": "https://www.foundationmedicine.com/test/foundationone-cdx",
-    "publicationsExampleCitations": ["https://doi.org/10.1038/nm.4333", "https://doi.org/10.1200/JCO.2017.75.3780"]
+    "publicationsExampleCitations": [
+      "https://doi.org/10.1038/nm.4333",
+      "https://doi.org/10.1200/JCO.2017.75.3780"
+    ]
   },
   {
     "id": "tds-2",
@@ -74,9 +104,18 @@
     "genesReported": 311,
     "genesReportedCitations": "https://www.accessdata.fda.gov/cdrh_docs/pdf20/P200006B.pdf",
     "geneListUrl": "https://www.foundationmedicine.com/test/foundationone-liquid-cdx",
-    "biomarkersReported": ["SNVs", "Indels", "Select CNAs", "Select Rearrangements", "bTMB", "MSI"],
+    "biomarkersReported": [
+      "SNVs",
+      "Indels",
+      "Select CNAs",
+      "Select Rearrangements",
+      "bTMB",
+      "MSI"
+    ],
     "biomarkersReportedCitations": "https://www.accessdata.fda.gov/cdrh_docs/pdf20/P200006B.pdf | https://www.foundationmedicine.com/test/foundationone-liquid-cdx",
-    "cancerTypes": ["Advanced solid tumors"],
+    "cancerTypes": [
+      "Advanced solid tumors"
+    ],
     "cancerTypesCitations": "https://www.foundationmedicine.com/test/foundationone-liquid-cdx",
     "targetPopulation": "Patients with advanced solid tumors when tissue biopsy is not feasible or as complement to tissue testing",
     "targetPopulationCitations": "https://www.accessdata.fda.gov/cdrh_docs/pdf20/P200006B.pdf",
@@ -89,7 +128,12 @@
     "fdaCompanionDxCountCitations": "https://www.foundationmedicine.com/press-release/fda-approves-foundationonercdx-and-foundationonerliquid-cdx-companion-diagnostics",
     "vendorClaimsNCCNAlignment": true,
     "vendorNCCNAlignmentCitation": "https://www.foundationmedicine.com/test/foundationone-liquid-cdx",
-    "vendorNCCNAlignmentIndications": ["NSCLC", "Breast Cancer", "Prostate Cancer", "Cholangiocarcinoma"],
+    "vendorNCCNAlignmentIndications": [
+      "NSCLC",
+      "Breast Cancer",
+      "Prostate Cancer",
+      "Cholangiocarcinoma"
+    ],
     "vendorNCCNAlignmentNotes": "Covers biomarkers recommended by NCCN guidelines. NCCN guidelines recommend testing specific genes/biomarkers but do not endorse specific commercial assays by name.",
     "tat": "7-10 days",
     "tatNotes": "Results typically available within 7-10 business days.",
@@ -109,7 +153,15 @@
     "medicareStatus": "Priced",
     "medicareEffective": "2025-Q4",
     "adltStatus": true,
-    "availableRegions": ["US", "EU", "UK", "Japan", "Canada", "Australia", "International"],
+    "availableRegions": [
+      "US",
+      "EU",
+      "UK",
+      "Japan",
+      "Canada",
+      "Australia",
+      "International"
+    ],
     "availableRegionsNotes": "Available in 100+ countries via Roche global network. US lab (Cambridge, MA) and EU lab (Penzberg, Germany).",
     "availableRegionsCitations": "https://www.roche.com/media/releases/med-cor-2021-10-25",
     "clinicalAvailability": "Commercially available in US since 2020; available in 100+ countries via Roche affiliates",
@@ -133,9 +185,19 @@
     "rnaGenesAnalyzed": 265,
     "rnaGenesAnalyzedCitations": "https://www.foundationmedicine.com/test/foundationone-heme",
     "geneListUrl": "https://www.foundationmedicine.com/test/foundationone-heme",
-    "biomarkersReported": ["SNVs", "Indels", "CNAs", "Rearrangements/Fusions", "TMB", "MSI"],
+    "biomarkersReported": [
+      "SNVs",
+      "Indels",
+      "CNAs",
+      "Rearrangements/Fusions",
+      "TMB",
+      "MSI"
+    ],
     "biomarkersReportedCitations": "https://www.foundationmedicine.com/test/foundationone-heme",
-    "cancerTypes": ["Hematologic malignancies", "Sarcomas"],
+    "cancerTypes": [
+      "Hematologic malignancies",
+      "Sarcomas"
+    ],
     "cancerTypesNotes": "Leukemias, lymphomas, myeloma, myelodysplastic syndromes, myeloproliferative neoplasms, and sarcomas.",
     "cancerTypesCitations": "https://www.foundationmedicine.com/test/foundationone-heme",
     "targetPopulation": "Patients with hematologic malignancies or sarcomas requiring comprehensive genomic profiling",
@@ -144,7 +206,13 @@
     "fdaStatusCitations": "https://www.foundationmedicine.com/test/foundationone-heme",
     "vendorClaimsNCCNAlignment": true,
     "vendorNCCNAlignmentCitation": "https://www.foundationmedicine.com/test/foundationone-heme",
-    "vendorNCCNAlignmentIndications": ["Acute Myeloid Leukemia", "Chronic Myeloid Leukemia", "B-Cell Lymphomas", "Myelodysplastic Syndromes", "Soft Tissue Sarcoma"],
+    "vendorNCCNAlignmentIndications": [
+      "Acute Myeloid Leukemia",
+      "Chronic Myeloid Leukemia",
+      "B-Cell Lymphomas",
+      "Myelodysplastic Syndromes",
+      "Soft Tissue Sarcoma"
+    ],
     "vendorNCCNAlignmentNotes": "Covers biomarkers recommended by NCCN guidelines for hematologic malignancies and sarcomas. NCCN guidelines recommend testing specific genes/biomarkers but do not endorse specific commercial assays by name.",
     "tat": "10-14 days",
     "tatCitations": "https://www.foundationmedicine.com/test/foundationone-heme",
@@ -155,7 +223,15 @@
     "reimbursementCitations": "https://www.foundationmedicine.com/resource/billing-and-financial-assistance",
     "listPrice": 3500,
     "listPriceCitations": "https://www.foundationmedicine.com/faq/patient-faqs",
-    "availableRegions": ["US", "EU", "UK", "Japan", "Canada", "Australia", "International"],
+    "availableRegions": [
+      "US",
+      "EU",
+      "UK",
+      "Japan",
+      "Canada",
+      "Australia",
+      "International"
+    ],
     "availableRegionsNotes": "Available in 100+ countries via Roche global network.",
     "availableRegionsCitations": "https://www.roche.com/media/releases/med-cor-2021-10-25",
     "clinicalAvailability": "Commercially available in US; available internationally via Roche affiliates",
@@ -182,9 +258,16 @@
     "genesReportedNotes": "74 genes targeted, 55 genes with reportable short variants.",
     "genesReportedCitations": "https://www.accessdata.fda.gov/cdrh_docs/pdf20/P200010B.pdf",
     "geneListUrl": "https://www.guardantcomplete.com/hcp/solutions/guardant360-cdx",
-    "biomarkersReported": ["SNVs", "Indels", "Select CNAs", "Select Fusions"],
+    "biomarkersReported": [
+      "SNVs",
+      "Indels",
+      "Select CNAs",
+      "Select Fusions"
+    ],
     "biomarkersReportedCitations": "https://www.accessdata.fda.gov/cdrh_docs/pdf20/P200010B.pdf",
-    "cancerTypes": ["All solid tumors"],
+    "cancerTypes": [
+      "All solid tumors"
+    ],
     "cancerTypesCitations": "https://www.cancernetwork.com/view/fda-approves-guardant360-cdx-for-comprehensive-genomic-profiling-in-all-solid-cancers",
     "targetPopulation": "Patients with advanced solid tumors; first liquid biopsy with FDA-approved CGP indication for all solid tumors",
     "targetPopulationCitations": "https://www.cancernetwork.com/view/fda-approves-guardant360-cdx-for-comprehensive-genomic-profiling-in-all-solid-cancers",
@@ -197,7 +280,10 @@
     "fdaCompanionDxCountCitations": "https://investors.guardanthealth.com/press-releases/press-releases/2025/FDA-Approves-Guardant360-CDx-as-Companion-Diagnostic-for-Eli-Lilly-and-Companys-Inluriyo-imlunestrant-for-Treatment-of-ESR1-mutated-Advanced-Breast-Cancer/default.aspx | https://www.onclive.com/view/fda-clears-guardant360-cdx-as-companion-diagnostic-for-imlunestrant-in-esr1-mutated-breast-cancer",
     "vendorClaimsNCCNAlignment": true,
     "vendorNCCNAlignmentCitation": "https://guardanthealth.com/guardant360-cdx/",
-    "vendorNCCNAlignmentIndications": ["NSCLC", "Breast Cancer"],
+    "vendorNCCNAlignmentIndications": [
+      "NSCLC",
+      "Breast Cancer"
+    ],
     "vendorNCCNAlignmentNotes": "Covers all genes recommended by NCCN for NSCLC and relevant biomarkers for breast cancer treatment. NCCN guidelines recommend testing specific genes/biomarkers but do not endorse specific commercial assays by name.",
     "tat": "5-7 days",
     "tatNotes": "Actionable results typically within 7 days; as fast as 5 days.",
@@ -220,7 +306,10 @@
     "numPublicationsSource": "vendor-estimate",
     "numPublicationsNotes": "Guardant360 cited in >150 peer-reviewed publications (vendor estimate).",
     "numPublicationsCitations": "https://www.cancernetwork.com/view/fda-approves-guardant360-cdx-for-comprehensive-genomic-profiling-in-all-solid-cancers",
-    "publicationsExampleCitations": ["https://pubmed.ncbi.nlm.nih.gov/33619370/", "https://pubmed.ncbi.nlm.nih.gov/37256839/"]
+    "publicationsExampleCitations": [
+      "https://pubmed.ncbi.nlm.nih.gov/33619370/",
+      "https://pubmed.ncbi.nlm.nih.gov/37256839/"
+    ]
   },
   {
     "id": "tds-17",
@@ -238,10 +327,22 @@
     "genesReportedNotes": "Full 744-gene panel reported. 10x more genes than previous Guardant360 version and 10x higher sensitivity for tumor fraction quantification.",
     "genesReportedCitations": "https://investors.guardanthealth.com/press-releases/press-releases/2024/Guardant-Health-Introduces-Major-Smart-Liquid-Biopsy-Upgrade-to-Market-Leading-Guardant360-Test-Further-Extending-Its-Best-in-Class-Performance/default.aspx",
     "geneListUrl": "https://www.guardantcomplete.com/hcp/solutions/guardant360-liquid/",
-    "biomarkersReported": ["SNVs", "Indels", "CNAs", "CNLs", "Fusions/Rearrangements", "MSI", "TMB", "Tumor Fraction", "Promoter Methylation"],
+    "biomarkersReported": [
+      "SNVs",
+      "Indels",
+      "CNAs",
+      "CNLs",
+      "Fusions/Rearrangements",
+      "MSI",
+      "TMB",
+      "Tumor Fraction",
+      "Promoter Methylation"
+    ],
     "biomarkersReportedNotes": "First and only liquid biopsy to deliver genomic and epigenomic insights (promoter methylation) from a single input. CHIP variants flagged via proprietary algorithm.",
     "biomarkersReportedCitations": "https://www.guardantcomplete.com/assets/pdf/Guardant360-Liquid-Specification-Sheet.pdf",
-    "cancerTypes": ["All solid tumors"],
+    "cancerTypes": [
+      "All solid tumors"
+    ],
     "cancerTypesCitations": "https://www.guardantcomplete.com/hcp/solutions/guardant360-liquid/",
     "targetPopulation": "Patients with advanced solid tumors; comprehensive genomic and epigenomic profiling for treatment selection",
     "targetPopulationCitations": "https://guardanthealth.com/products/tests-for-patients-with-early-and-advanced-stage-cancer/",
@@ -252,12 +353,19 @@
     "fdaCompanionDxCountNotes": "LDT version - no FDA companion diagnostic claims. For FDA-approved CDx, see Guardant360 CDx.",
     "vendorClaimsNCCNAlignment": true,
     "vendorNCCNAlignmentCitation": "https://guardanthealth.com/guardant360/",
-    "vendorNCCNAlignmentIndications": ["NSCLC", "Breast Cancer", "Colorectal Cancer", "Prostate Cancer", "Ovarian Cancer", "Melanoma"],
+    "vendorNCCNAlignmentIndications": [
+      "NSCLC",
+      "Breast Cancer",
+      "Colorectal Cancer",
+      "Prostate Cancer",
+      "Ovarian Cancer",
+      "Melanoma"
+    ],
     "vendorNCCNAlignmentNotes": "Covers all guideline-recommended genomic biomarkers across advanced solid tumors plus emerging biomarkers. NCCN guidelines recommend testing specific genes/biomarkers but do not endorse specific commercial assays by name.",
     "tat": "7 days",
     "tatNotes": "Median 7 days from sample receipt to results.",
     "tatCitations": "https://www.guardantcomplete.com/assets/pdf/Guardant360-Liquid-Specification-Sheet.pdf",
-    "sampleRequirements": "Two 10 mL tubes of whole blood; ship same or next day at room temperature (do not freeze/refrigerate)",
+    "sampleRequirements": "Two 10mL cfDNA BCT Streck Tubes (provided in the kit); Ship same/next day @ Room Temp carefully following the kit included IFU.",
     "sampleRequirementsCitations": "https://www.guardantcomplete.com/assets/pdf/Guardant360-Liquid-Specification-Sheet.pdf",
     "lod": "SNVs: 0.20% VAF; Indels: 0.26%; CNAs: 2.46 copies; Fusions: 0.05%; MSI: 0.05%; Tumor Fraction: 1.6%",
     "lodNotes": "LoD defined as allele fraction/copy number at 95% probability of detection for oncogenic variants. TMB evaluable at ≥0.3% sample allele fraction.",
@@ -267,7 +375,9 @@
     "reimbursement": "Medicare",
     "reimbursementNote": "Covered by Medicare and major private payers for comprehensive genomic profiling of all advanced solid tumors.",
     "reimbursementCitations": "https://investors.guardanthealth.com/press-releases/press-releases/2024/Guardant-Health-Introduces-Major-Smart-Liquid-Biopsy-Upgrade-to-Market-Leading-Guardant360-Test-Further-Extending-Its-Best-in-Class-Performance/default.aspx",
-    "availableRegions": ["US"],
+    "availableRegions": [
+      "US"
+    ],
     "availableRegionsNotes": "US availability via Guardant Health. International availability via regional spec sheets (AMEA region).",
     "availableRegionsCitations": "https://www.guardantcomplete.com/hcp/solutions/guardant360-liquid/",
     "clinicalAvailability": "Commercially available in US; 2024 major upgrade launched",
@@ -275,7 +385,9 @@
     "numPublications": 100,
     "numPublicationsPlus": true,
     "numPublicationsNotes": "Same platform as Guardant360 CDx; extensive clinical validation and companion diagnostic studies across multiple cancer types",
-    "numPublicationsCitations": "https://pubmed.ncbi.nlm.nih.gov/34838325/"
+    "numPublicationsCitations": "https://pubmed.ncbi.nlm.nih.gov/34838325/",
+    "vendorVerified": true,
+    "vendorRequestedChanges": "2026-01-06: Vendor validation by Brandon Guida (Guardant Health) - updated sampleRequirements with precise tube specifications per official IFU."
   },
   {
     "id": "tds-5",
@@ -289,10 +401,20 @@
     "genesAnalyzed": 648,
     "genesAnalyzedCitations": "https://www.tempus.com/oncology/genomic-profiling/xt-xr/ | https://www.biospace.com/press-releases/tempus-announces-the-national-launch-of-fda-approved-xt-cdx-test",
     "geneListUrl": "https://www.tempus.com/oncology/genomic-profiling/xt-xr/",
-    "biomarkersReported": ["SNVs", "MNVs", "Indels", "CNVs", "Rearrangements", "TMB", "MSI"],
+    "biomarkersReported": [
+      "SNVs",
+      "MNVs",
+      "Indels",
+      "CNVs",
+      "Rearrangements",
+      "TMB",
+      "MSI"
+    ],
     "biomarkersReportedNotes": "HRD and HLA genotyping available as add-ons via professional services report.",
     "biomarkersReportedCitations": "https://www.tempus.com/oncology/genomic-profiling/xt-xr/",
-    "cancerTypes": ["All solid tumors"],
+    "cancerTypes": [
+      "All solid tumors"
+    ],
     "cancerTypesCitations": "https://www.accessdata.fda.gov/cdrh_docs/pdf21/P210011C.pdf",
     "targetPopulation": "Patients with previously diagnosed solid malignant neoplasms",
     "targetPopulationCitations": "https://www.accessdata.fda.gov/cdrh_docs/pdf21/P210011C.pdf",
@@ -305,7 +427,14 @@
     "fdaCompanionDxCountCitations": "https://www.tempus.com/oncology/genomic-profiling/xt-xr/",
     "vendorClaimsNCCNAlignment": true,
     "vendorNCCNAlignmentCitation": "https://www.tempus.com/oncology/genomic-profiling/xt/",
-    "vendorNCCNAlignmentIndications": ["NSCLC", "Colorectal Cancer", "Breast Cancer", "Melanoma", "Prostate Cancer", "Ovarian Cancer"],
+    "vendorNCCNAlignmentIndications": [
+      "NSCLC",
+      "Colorectal Cancer",
+      "Breast Cancer",
+      "Melanoma",
+      "Prostate Cancer",
+      "Ovarian Cancer"
+    ],
     "vendorNCCNAlignmentNotes": "Covers biomarkers recommended by NCCN guidelines for major solid tumors. NCCN guidelines recommend testing specific genes/biomarkers but do not endorse specific commercial assays by name.",
     "tat": "14 days",
     "tatNotes": "Results typically within 14 days.",
@@ -349,9 +478,17 @@
     "genesAnalyzed": 105,
     "genesAnalyzedCitations": "https://www.tempus.com/oncology/genomic-profiling/xf/",
     "geneListUrl": "https://www.tempus.com/oncology/genomic-profiling/xf/",
-    "biomarkersReported": ["SNVs", "Indels", "Select CNAs", "Select Rearrangements", "MSI"],
+    "biomarkersReported": [
+      "SNVs",
+      "Indels",
+      "Select CNAs",
+      "Select Rearrangements",
+      "MSI"
+    ],
     "biomarkersReportedCitations": "https://www.ncbi.nlm.nih.gov/gtr/tests/569040/",
-    "cancerTypes": ["Advanced solid tumors"],
+    "cancerTypes": [
+      "Advanced solid tumors"
+    ],
     "cancerTypesCitations": "https://www.tempus.com/oncology/genomic-profiling/xf/",
     "targetPopulation": "Patients with advanced solid tumors; not intended for hematologic malignancies, early-stage cancers, or primary CNS malignancies",
     "targetPopulationCitations": "https://www.ncbi.nlm.nih.gov/gtr/tests/569040/",
@@ -359,7 +496,12 @@
     "fdaStatusCitations": "https://www.tempus.com/oncology/genomic-profiling/xf/",
     "vendorClaimsNCCNAlignment": true,
     "vendorNCCNAlignmentCitation": "https://www.tempus.com/oncology/genomic-profiling/xf/",
-    "vendorNCCNAlignmentIndications": ["NSCLC", "Breast Cancer", "Colorectal Cancer", "Prostate Cancer"],
+    "vendorNCCNAlignmentIndications": [
+      "NSCLC",
+      "Breast Cancer",
+      "Colorectal Cancer",
+      "Prostate Cancer"
+    ],
     "vendorNCCNAlignmentNotes": "Covers key biomarkers recommended by NCCN guidelines for major solid tumors. NCCN guidelines recommend testing specific genes/biomarkers but do not endorse specific commercial assays by name.",
     "tat": "5-7 days",
     "tatCitations": "https://www.tempus.com/oncology/genomic-profiling/xf/",
@@ -395,9 +537,17 @@
     "genesAnalyzed": 523,
     "genesAnalyzedCitations": "https://www.tempus.com/oncology/genomic-profiling/xf/",
     "geneListUrl": "https://www.tempus.com/oncology/genomic-profiling/xf/",
-    "biomarkersReported": ["SNVs", "Indels", "CNAs", "Rearrangements", "CH variants"],
+    "biomarkersReported": [
+      "SNVs",
+      "Indels",
+      "CNAs",
+      "Rearrangements",
+      "CH variants"
+    ],
     "biomarkersReportedCitations": "https://www.tempus.com/oncology/genomic-profiling/xf/",
-    "cancerTypes": ["Advanced solid tumors"],
+    "cancerTypes": [
+      "Advanced solid tumors"
+    ],
     "cancerTypesCitations": "https://www.tempus.com/oncology/genomic-profiling/xf/",
     "targetPopulation": "Patients requiring expanded liquid biopsy coverage",
     "targetPopulationCitations": "https://www.tempus.com/oncology/genomic-profiling/xf/",
@@ -405,7 +555,13 @@
     "fdaStatusCitations": "https://www.tempus.com/oncology/genomic-profiling/xf/",
     "vendorClaimsNCCNAlignment": true,
     "vendorNCCNAlignmentCitation": "https://www.tempus.com/oncology/genomic-profiling/xf-plus/",
-    "vendorNCCNAlignmentIndications": ["NSCLC", "Breast Cancer", "Colorectal Cancer", "Prostate Cancer", "Ovarian Cancer"],
+    "vendorNCCNAlignmentIndications": [
+      "NSCLC",
+      "Breast Cancer",
+      "Colorectal Cancer",
+      "Prostate Cancer",
+      "Ovarian Cancer"
+    ],
     "vendorNCCNAlignmentNotes": "Expanded 523-gene panel covers all biomarkers recommended by NCCN guidelines for major solid tumors. NCCN guidelines recommend testing specific genes/biomarkers but do not endorse specific commercial assays by name.",
     "tat": "7-10 days",
     "tatCitations": "https://www.tempus.com/oncology/genomic-profiling/xf/",
@@ -434,9 +590,17 @@
     "genesAnalyzedNotes": "468 genes in original FDA-authorized configuration (2017); panel has since expanded to ~505 genes per current MSK documentation.",
     "genesAnalyzedCitations": "https://www.accessdata.fda.gov/cdrh_docs/reviews/den170058.pdf | https://ascopost.com/News/58263 | https://www.mskcc.org/msk-impact",
     "geneListUrl": "https://www.mskcc.org/msk-impact",
-    "biomarkersReported": ["SNVs", "Indels", "CNAs", "Select Rearrangements", "MSI"],
+    "biomarkersReported": [
+      "SNVs",
+      "Indels",
+      "CNAs",
+      "Select Rearrangements",
+      "MSI"
+    ],
     "biomarkersReportedCitations": "https://www.accessdata.fda.gov/cdrh_docs/reviews/den170058.pdf",
-    "cancerTypes": ["All solid tumors"],
+    "cancerTypes": [
+      "All solid tumors"
+    ],
     "cancerTypesCitations": "https://www.mskcc.org/msk-impact",
     "targetPopulation": "Patients with advanced cancer treated at Memorial Sloan Kettering Cancer Center",
     "targetPopulationCitations": "https://www.mskcc.org/msk-impact",
@@ -447,7 +611,15 @@
     "fdaStatusNotes": "Not FDA-approved as CDx; authorized for tumor mutation profiling. Also approved by NYSDOH.",
     "vendorClaimsNCCNAlignment": true,
     "vendorNCCNAlignmentCitation": "https://www.mskcc.org/msk-impact",
-    "vendorNCCNAlignmentIndications": ["NSCLC", "Breast Cancer", "Colorectal Cancer", "Prostate Cancer", "Melanoma", "Ovarian Cancer", "Gastric Cancer"],
+    "vendorNCCNAlignmentIndications": [
+      "NSCLC",
+      "Breast Cancer",
+      "Colorectal Cancer",
+      "Prostate Cancer",
+      "Melanoma",
+      "Ovarian Cancer",
+      "Gastric Cancer"
+    ],
     "vendorNCCNAlignmentNotes": "Covers biomarkers recommended by NCCN guidelines for major solid tumors. NCCN guidelines recommend testing specific genes/biomarkers but do not endorse specific commercial assays by name.",
     "tat": "2-3 weeks",
     "tatCitations": "https://www.mskcc.org/msk-impact",
@@ -465,7 +637,10 @@
     "numPublicationsSource": "vendor-estimate",
     "numPublicationsNotes": ">1,000 peer-reviewed publications featuring MSK-IMPACT data as of end of 2024 (vendor estimate).",
     "numPublicationsCitations": "https://www.mskcc.org/msk-impact",
-    "publicationsExampleCitations": ["https://doi.org/10.1038/nm.4333", "https://doi.org/10.1056/NEJMoa1610624"],
+    "publicationsExampleCitations": [
+      "https://doi.org/10.1038/nm.4333",
+      "https://doi.org/10.1056/NEJMoa1610624"
+    ],
     "keyFindings": "37% of profiled patients have at least one actionable mutation; 11% enrolled in matched clinical trials.",
     "keyFindingsCitations": "https://www.mskcc.org/news/fda-authorizes-msk-impact-test-analyzing-patient-tumors | https://www.cancer.gov/news-events/cancer-currents-blog/2017/genomic-profiling-tests-cancer"
   },
@@ -482,9 +657,20 @@
     "genesAnalyzedNotes": "228 genes with reportable SNVs/indels in CDx subset; WES/WTS technically interrogates ~20,000 genes for research findings and signatures. This prevents confusion between '228 genes' and 'whole-exome' claims.",
     "genesAnalyzedCitations": "https://www.prnewswire.com/news-releases/caris-life-sciences-demonstrates-scientific-rigor-with-clinical-validation-of-fda-approved-mi-cancer-seek-302530610.html",
     "geneListUrl": "https://www.carislifesciences.com/physicians/physician-tests/mi-cancer-seek/",
-    "biomarkersReported": ["SNVs", "Indels", "MSI", "TMB", "ERBB2 CNA"],
-    "biomarkersReportedCitations": "https://www.prnewswire.com/news-releases/caris-life-sciences-demonstrates-scientific-rigor-with-clinical-validation-of-fda-approved-mi-cancer-seek-302530610.html",
-    "cancerTypes": ["All solid tumors"],
+    "biomarkersReported": [
+      "SNVs",
+      "Indels",
+      "MSI",
+      "TMB",
+      "ERBB2 CNA",
+      "HRD",
+      "gLOH"
+    ],
+    "biomarkersReportedNotes": "HRD status reported based on BRCA1/2 mutations and Genomic Scar Score (gLOH + LST). HRD assessment validated for ovarian cancer PARPi therapy selection.",
+    "biomarkersReportedCitations": "https://www.prnewswire.com/news-releases/caris-life-sciences-demonstrates-scientific-rigor-with-clinical-validation-of-fda-approved-mi-cancer-seek-302530610.html | https://www.carislifesciences.com/physicians/physician-tests/whole-exome-sequencing/homologous-recombination-deficiency-hrd/",
+    "cancerTypes": [
+      "All solid tumors"
+    ],
     "cancerTypesCitations": "https://www.carislifesciences.com/physicians/physician-tests/mi-cancer-seek/",
     "targetPopulation": "Adults and pediatric patients (ages 1-22) with previously diagnosed solid malignant neoplasms",
     "targetPopulationNotes": "First and only FDA-approved CGP with CDx indications for both adult and pediatric patients.",
@@ -498,7 +684,13 @@
     "fdaCompanionDxCountCitations": "https://www.prnewswire.com/news-releases/caris-life-sciences-demonstrates-scientific-rigor-with-clinical-validation-of-fda-approved-mi-cancer-seek-302530610.html | https://www.carislifesciences.com/physicians/physician-tests/mi-cancer-seek/cdx-indications/",
     "vendorClaimsNCCNAlignment": true,
     "vendorNCCNAlignmentCitation": "https://www.molecularmd.com/",
-    "vendorNCCNAlignmentIndications": ["NSCLC", "Breast Cancer", "Colorectal Cancer", "Melanoma", "Endometrial Cancer"],
+    "vendorNCCNAlignmentIndications": [
+      "NSCLC",
+      "Breast Cancer",
+      "Colorectal Cancer",
+      "Melanoma",
+      "Endometrial Cancer"
+    ],
     "vendorNCCNAlignmentNotes": "Covers biomarkers recommended by NCCN guidelines including PIK3CA, KRAS, NRAS, BRAF, MSI-H/TMB-H. NCCN guidelines recommend testing specific genes/biomarkers but do not endorse specific commercial assays by name.",
     "tat": "14 days",
     "tatNotes": "Results within 14 days.",
@@ -531,9 +723,19 @@
     "genesAnalyzedNotes": "WES/WTS comprehensively interrogates ~20,000 genes; reportable subset varies by biomarker type.",
     "genesAnalyzedCitations": "https://www.exactsciences.com/test/oncoextra",
     "geneListUrl": "https://www.exactsciences.com/test/oncoextra",
-    "biomarkersReported": ["SNVs", "Indels", "CNAs", "Fusions", "TMB", "MSI", "HRD"],
+    "biomarkersReported": [
+      "SNVs",
+      "Indels",
+      "CNAs",
+      "Fusions",
+      "TMB",
+      "MSI",
+      "HRD"
+    ],
     "biomarkersReportedCitations": "https://www.exactsciences.com/test/oncoextra",
-    "cancerTypes": ["Advanced solid tumors"],
+    "cancerTypes": [
+      "Advanced solid tumors"
+    ],
     "cancerTypesCitations": "https://www.exactsciences.com/test/oncoextra",
     "targetPopulation": "Patients with advanced solid tumors requiring comprehensive genomic and transcriptomic profiling",
     "targetPopulationCitations": "https://www.exactsciences.com/test/oncoextra",
@@ -541,7 +743,14 @@
     "fdaStatusCitations": "https://www.exactsciences.com/test/oncoextra",
     "vendorClaimsNCCNAlignment": true,
     "vendorNCCNAlignmentCitation": "https://www.oncoextra.com/",
-    "vendorNCCNAlignmentIndications": ["NSCLC", "Breast Cancer", "Colorectal Cancer", "Prostate Cancer", "Ovarian Cancer", "Melanoma"],
+    "vendorNCCNAlignmentIndications": [
+      "NSCLC",
+      "Breast Cancer",
+      "Colorectal Cancer",
+      "Prostate Cancer",
+      "Ovarian Cancer",
+      "Melanoma"
+    ],
     "vendorNCCNAlignmentNotes": "WES/WTS approach covers all biomarkers recommended by NCCN guidelines. NCCN guidelines recommend testing specific genes/biomarkers but do not endorse specific commercial assays by name.",
     "tat": "10-14 days",
     "tatCitations": "https://www.exactsciences.com/test/oncoextra",
@@ -571,10 +780,21 @@
     "genesAnalyzed": 523,
     "genesAnalyzedCitations": "https://oncology.labcorp.com/providers/order-a-test/omniseq-insight",
     "geneListUrl": "https://oncology.labcorp.com/providers/order-a-test/omniseq-insight",
-    "biomarkersReported": ["SNVs", "Indels", "CNAs", "Fusions", "TMB", "MSI", "PD-L1", "Immune Signatures"],
+    "biomarkersReported": [
+      "SNVs",
+      "Indels",
+      "CNAs",
+      "Fusions",
+      "TMB",
+      "MSI",
+      "PD-L1",
+      "Immune Signatures"
+    ],
     "biomarkersReportedNotes": "Combined genomic and immune profiling in single test.",
     "biomarkersReportedCitations": "https://oncology.labcorp.com/providers/order-a-test/omniseq-insight",
-    "cancerTypes": ["All solid tumors"],
+    "cancerTypes": [
+      "All solid tumors"
+    ],
     "cancerTypesCitations": "https://oncology.labcorp.com/providers/order-a-test/omniseq-insight",
     "targetPopulation": "Patients with solid tumors requiring comprehensive genomic and immune profiling",
     "targetPopulationCitations": "https://oncology.labcorp.com/providers/order-a-test/omniseq-insight",
@@ -582,7 +802,13 @@
     "fdaStatusCitations": "https://oncology.labcorp.com/providers/order-a-test/omniseq-insight",
     "vendorClaimsNCCNAlignment": true,
     "vendorNCCNAlignmentCitation": "https://www.omniseq.com/",
-    "vendorNCCNAlignmentIndications": ["NSCLC", "Breast Cancer", "Colorectal Cancer", "Melanoma", "Prostate Cancer"],
+    "vendorNCCNAlignmentIndications": [
+      "NSCLC",
+      "Breast Cancer",
+      "Colorectal Cancer",
+      "Melanoma",
+      "Prostate Cancer"
+    ],
     "vendorNCCNAlignmentNotes": "Covers biomarkers recommended by NCCN guidelines plus immune profiling. NCCN guidelines recommend testing specific genes/biomarkers but do not endorse specific commercial assays by name.",
     "tat": "10-14 days",
     "tatCitations": "https://oncology.labcorp.com/providers/order-a-test/omniseq-insight",
@@ -610,9 +836,18 @@
     "genesAnalyzed": 429,
     "genesAnalyzedCitations": "https://ascopubs.org/doi/10.1200/PO.21.00088",
     "geneListUrl": "https://www.strataoncology.com/stratangs",
-    "biomarkersReported": ["SNVs", "Indels", "CNAs", "Select Fusions", "TMB", "MSI"],
+    "biomarkersReported": [
+      "SNVs",
+      "Indels",
+      "CNAs",
+      "Select Fusions",
+      "TMB",
+      "MSI"
+    ],
     "biomarkersReportedCitations": "https://ascopubs.org/doi/10.1200/PO.21.00088",
-    "cancerTypes": ["All solid tumors"],
+    "cancerTypes": [
+      "All solid tumors"
+    ],
     "cancerTypesCitations": "https://www.strataoncology.com/stratangs",
     "targetPopulation": "Patients with advanced solid tumors requiring genomic profiling",
     "targetPopulationCitations": "https://www.strataoncology.com/stratangs",
@@ -620,7 +855,13 @@
     "fdaStatusCitations": "https://www.strataoncology.com/stratangs",
     "vendorClaimsNCCNAlignment": true,
     "vendorNCCNAlignmentCitation": "https://www.stratangs.com/",
-    "vendorNCCNAlignmentIndications": ["NSCLC", "Breast Cancer", "Colorectal Cancer", "Prostate Cancer", "Ovarian Cancer"],
+    "vendorNCCNAlignmentIndications": [
+      "NSCLC",
+      "Breast Cancer",
+      "Colorectal Cancer",
+      "Prostate Cancer",
+      "Ovarian Cancer"
+    ],
     "vendorNCCNAlignmentNotes": "Covers biomarkers recommended by NCCN guidelines. NCCN guidelines recommend testing specific genes/biomarkers but do not endorse specific commercial assays by name.",
     "tat": "7-10 days",
     "tatCitations": "https://www.strataoncology.com/stratangs",
@@ -651,10 +892,22 @@
     "genesAnalyzedNotes": "WES/WTS interrogates ~22,000 genes; protein analysis adds expression-level biomarkers.",
     "genesAnalyzedCitations": "https://www.carislifesciences.com/physicians/profiling/",
     "geneListUrl": "https://www.carislifesciences.com/physicians/profiling/",
-    "biomarkersReported": ["SNVs", "Indels", "CNAs", "Fusions", "TMB", "MSI", "Protein Expression"],
-    "biomarkersReportedNotes": "Multi-omic approach combines genomic, transcriptomic, and proteomic data.",
-    "biomarkersReportedCitations": "https://www.carislifesciences.com/physicians/profiling/",
-    "cancerTypes": ["All solid tumors"],
+    "biomarkersReported": [
+      "SNVs",
+      "Indels",
+      "CNAs",
+      "Fusions",
+      "TMB",
+      "MSI",
+      "HRD",
+      "gLOH",
+      "Protein Expression"
+    ],
+    "biomarkersReportedNotes": "Multi-omic approach combines genomic, transcriptomic, and proteomic data. HRD status reported based on BRCA1/2 mutations and Genomic Scar Score (gLOH + LST).",
+    "biomarkersReportedCitations": "https://www.carislifesciences.com/physicians/profiling/ | https://www.carislifesciences.com/physicians/physician-tests/whole-exome-sequencing/homologous-recombination-deficiency-hrd/",
+    "cancerTypes": [
+      "All solid tumors"
+    ],
     "cancerTypesCitations": "https://www.carislifesciences.com/physicians/profiling/",
     "targetPopulation": "Patients requiring comprehensive multi-omic tumor profiling",
     "targetPopulationCitations": "https://www.carislifesciences.com/physicians/profiling/",
@@ -663,7 +916,15 @@
     "fdaStatusCitations": "https://www.carislifesciences.com/physicians/profiling/ | https://www.carislifesciences.com/about/news-and-media/caris-life-sciences-receives-fda-approval-for-mi-cancer-seek/",
     "vendorClaimsNCCNAlignment": true,
     "vendorNCCNAlignmentCitation": "https://www.molecularmd.com/",
-    "vendorNCCNAlignmentIndications": ["NSCLC", "Breast Cancer", "Colorectal Cancer", "Melanoma", "Prostate Cancer", "Ovarian Cancer", "Gastric Cancer"],
+    "vendorNCCNAlignmentIndications": [
+      "NSCLC",
+      "Breast Cancer",
+      "Colorectal Cancer",
+      "Melanoma",
+      "Prostate Cancer",
+      "Ovarian Cancer",
+      "Gastric Cancer"
+    ],
     "vendorNCCNAlignmentNotes": "Multi-omic approach covers biomarkers recommended by NCCN guidelines at DNA, RNA, and protein levels. NCCN guidelines recommend testing specific genes/biomarkers but do not endorse specific commercial assays by name.",
     "tat": "10-14 days",
     "tatCitations": "https://www.carislifesciences.com/physicians/profiling/",
@@ -693,10 +954,20 @@
     "genesAnalyzedNotes": "517 genes analyzed via both DNA and RNA NGS methods.",
     "genesAnalyzedCitations": "NeoGenomics press release March 2023; NeoGenomics test menu.",
     "geneListUrl": "https://www.neogenomics.com/test-menu",
-    "biomarkersReported": ["SNVs", "Indels", "CNVs", "Fusions", "Splice variants", "TMB", "MSI"],
+    "biomarkersReported": [
+      "SNVs",
+      "Indels",
+      "CNVs",
+      "Fusions",
+      "Splice variants",
+      "TMB",
+      "MSI"
+    ],
     "biomarkersReportedNotes": "Comprehensive biomarker detection including both DNA alterations and RNA fusions/splice variants.",
     "biomarkersReportedCitations": "NeoGenomics press release March 2023.",
-    "cancerTypes": ["All solid tumors"],
+    "cancerTypes": [
+      "All solid tumors"
+    ],
     "cancerTypesCitations": "https://www.neogenomics.com/test-menu",
     "targetPopulation": "Patients with solid tumors requiring comprehensive genomic profiling for diagnosis, therapy selection, prognosis, and clinical trial eligibility",
     "targetPopulationCitations": "NeoGenomics test menu; press releases.",
@@ -705,7 +976,14 @@
     "fdaStatusCitations": "https://ir.neogenomics.com/news-events/press-releases/detail/276/neogenomics-receives-new-york-state-approval-for-neo",
     "vendorClaimsNCCNAlignment": true,
     "vendorNCCNAlignmentCitation": "https://neotrex.com/",
-    "vendorNCCNAlignmentIndications": ["NSCLC", "Breast Cancer", "Colorectal Cancer", "Melanoma", "Prostate Cancer", "Ovarian Cancer"],
+    "vendorNCCNAlignmentIndications": [
+      "NSCLC",
+      "Breast Cancer",
+      "Colorectal Cancer",
+      "Melanoma",
+      "Prostate Cancer",
+      "Ovarian Cancer"
+    ],
     "vendorNCCNAlignmentNotes": "Pan-cancer CGP aligns with NCCN guidelines for solid tumor biomarker testing. NCCN recommends testing specific genes/biomarkers but does not endorse specific commercial assays by name.",
     "tat": "7-10 days",
     "tatNotes": "Improved turnaround time compared to previous NeoGenomics panels. Streamlined workflow.",
@@ -736,10 +1014,21 @@
     "genesAnalyzedNotes": "84-gene panel: 82 genes for SNV/indels, 19 genes for CNA amplification, 5 genes for CNA loss, 9 genes for fusions. Panel designed for actionability over breadth.",
     "genesAnalyzedCitations": "https://www.northstaronc.com/",
     "geneListUrl": "https://cdn.prod.website-files.com/676903c0e34284138d6e0066/68e3c65e20bf5b7173202a4f_NS-SEL-FL-001-2509%20-%20Spec%20Sheet%20-%20DIGITAL.pdf",
-    "biomarkersReported": ["SNVs", "Indels", "CNAs (amplification)", "CNAs (loss)", "Fusions", "MSI-H"],
+    "biomarkersReported": [
+      "SNVs",
+      "Indels",
+      "CNAs (amplification)",
+      "CNAs (loss)",
+      "Fusions",
+      "MSI-H"
+    ],
     "biomarkersReportedNotes": "Reports guideline-recommended alterations with focus on actionability. Unique capability to detect CNA losses and differentiate focal driver amplifications from broad chromosomal aneuploidies.",
     "biomarkersReportedCitations": "https://www.northstaronc.com/ | Bower X et al. J Liq Biopsy 2025",
-    "cancerTypes": ["Advanced solid tumors (17+ types)", "CNS cancers", "Low-shedding tumors"],
+    "cancerTypes": [
+      "Advanced solid tumors (17+ types)",
+      "CNS cancers",
+      "Low-shedding tumors"
+    ],
     "cancerTypesCitations": "https://www.prnewswire.com/news-releases/billiontoones-northstar-select-demonstrates-superior-sensitivity-in-prospective-head-to-head-validation-study-publication-302539192.html",
     "targetPopulation": "Patients with stage III or IV solid tumors requiring comprehensive genomic profiling, particularly when tissue is not feasible or for low-shedding tumors",
     "targetPopulationCitations": "https://ascopubs.org/doi/10.1200/JCO.2024.42.16_suppl.3072",
@@ -757,7 +1046,12 @@
     "fdaStatusCitations": "https://www.northstaronc.com/",
     "vendorClaimsNCCNAlignment": true,
     "vendorNCCNAlignmentCitation": "https://www.biodesix.com/",
-    "vendorNCCNAlignmentIndications": ["NSCLC", "Breast Cancer", "Colorectal Cancer", "Prostate Cancer"],
+    "vendorNCCNAlignmentIndications": [
+      "NSCLC",
+      "Breast Cancer",
+      "Colorectal Cancer",
+      "Prostate Cancer"
+    ],
     "vendorNCCNAlignmentNotes": "84-gene panel covers guideline-recommended biomarkers. NCCN recommends testing specific genes/biomarkers but does not endorse specific commercial assays by name.",
     "tat": "5-8 days",
     "tatNotes": "Typical turnaround time 5-8 days from specimen receipt.",
@@ -772,7 +1066,10 @@
     "numPublications": 2,
     "numPublicationsNotes": "Peer-reviewed validation study published September 2025 in Journal of Liquid Biopsy. ASCO 2024 abstract.",
     "numPublicationsCitations": "Bower X et al. J Liq Biopsy 2025;9:1003222 | JCO 2024;42:16_suppl,3072",
-    "publicationsExampleCitations": ["https://www.journalofliquidbiopsy.com/article/S2950-1954(25)00038-4/fulltext", "https://ascopubs.org/doi/10.1200/JCO.2024.42.16_suppl.3072"],
+    "publicationsExampleCitations": [
+      "https://www.journalofliquidbiopsy.com/article/S2950-1954(25)00038-4/fulltext",
+      "https://ascopubs.org/doi/10.1200/JCO.2024.42.16_suppl.3072"
+    ],
     "technologyDifferentiator": "Only liquid biopsy with prospective head-to-head peer-reviewed publication showing superior sensitivity vs multiple commercially available comparators. smNGS with QCT technology enables single-molecule precision. Unique ability to detect CNA losses and differentiate focal amplifications from aneuploidies.",
     "independentValidation": "Prospective head-to-head validation against 6 commercially available assays from 4 CLIA/CAP labs (n=182 patients, 17+ tumor types, 6 community clinics + 1 hospital). Orthogonal ddPCR validation showed 98% concordance.",
     "independentValidationCitations": "Bower X et al. J Liq Biopsy 2025;9:1003222",
@@ -789,7 +1086,9 @@
     "methodCitations": "Klein EA et al. Eur Urol 2017 | Stovsky M et al. J Urol 2019",
     "genesAnalyzed": null,
     "genesAnalyzedNotes": "Not applicable - protein structure analysis test, not genomic",
-    "cancerTypes": ["Prostate cancer (high-grade)"],
+    "cancerTypes": [
+      "Prostate cancer (high-grade)"
+    ],
     "cancerTypesNotes": "Specifically designed to detect high-grade (clinically significant) prostate cancer, helping avoid unnecessary biopsies for low-grade or benign conditions.",
     "targetPopulation": "Men ≥50 years of age with elevated PSA levels who are candidates for prostate biopsy decision-making",
     "targetPopulationCitations": "FDA PMA approval December 2025",
@@ -819,7 +1118,9 @@
     "reimbursement": "Medicare",
     "reimbursementNote": "Medicare coverage established. Commercial payer coverage for 140 million covered lives. More IsoPSAs ordered in first full year as LDT than Guardant360 tests in first 3 years.",
     "reimbursementCitations": "Cleveland Diagnostics; Sameer Rohatgi communication Dec 2025",
-    "commercialPayers": ["Multiple commercial payers (140M covered lives)"],
+    "commercialPayers": [
+      "Multiple commercial payers (140M covered lives)"
+    ],
     "tat": "3-5 days",
     "tatNotes": "Results typically available in 3-5 days from sample receipt.",
     "tatCitations": "https://www.isopsa.com/for-patients/",
@@ -829,7 +1130,9 @@
     "clinicalAvailability": "Commercially available in US (LDT since 2020, FDA PMA December 2025)",
     "clinicalAvailabilityNotes": "Available through Cleveland Diagnostics CLIA lab and Quest Diagnostics. IVD kit format enables deployment on standard clinical analyzers (Roche COBAS, Siemens, Abbott) at any laboratory.",
     "clinicalAvailabilityCitations": "https://www.clevelanddx.com",
-    "availableRegions": ["US"],
+    "availableRegions": [
+      "US"
+    ],
     "clinicalTrials": "Prospective multicenter validation study (n=888 patients scheduled for prostate biopsy)",
     "clinicalTrialsCitations": "https://www.accessdata.fda.gov/cdrh_docs/pdf22/P220023B.pdf | FDA PMA clinical data; https://pubmed.ncbi.nlm.nih.gov/27477528/ | Klein EA et al. Eur Urol 2017",
     "totalParticipants": 888,
@@ -838,7 +1141,11 @@
     "numPublicationsPlus": true,
     "numPublicationsNotes": "Extensive publication portfolio including Klein EA et al. Eur Urol 2017 (initial validation), Stovsky M et al. J Urol 2019, decision analysis in Urol Pract 2022, and longitudinal outcomes in Urology 2025.",
     "numPublicationsCitations": "https://www.clevelanddx.com/news-archive",
-    "publicationsExampleCitations": ["Klein EA et al. Eur Urol 2017", "Stovsky M et al. J Urol 2019", "Abdallah et al. Urology 2025"],
+    "publicationsExampleCitations": [
+      "Klein EA et al. Eur Urol 2017",
+      "Stovsky M et al. J Urol 2019",
+      "Abdallah et al. Urology 2025"
+    ],
     "technologyDifferentiator": "Only FDA-approved protein structure-based cancer diagnostic. IsoClear platform measures structural differences in proteins rather than concentration. Deployable on standard clinical analyzers (Roche COBAS, Siemens, Abbott) enabling broad access from academic centers to community urology practices - not limited to centralized specialty labs.",
     "regulatoryStatusNotes": "FDA PMA approved December 2025. Breakthrough Device Designation 2019. In NCCN and AUA/SUO guidelines. First protein structure-based cancer blood test to receive FDA approval.",
     "vendorDataSource": "Sameer Rohatgi (Cleveland Diagnostics) communication Dec 2025"
@@ -856,10 +1163,18 @@
     "genesAnalyzedNotes": "16 cancer-related genes (proliferation: Ki67, STK15, BIRC5, CCNB1, MYBL2; HER2 group: GRB7, HER2; estrogen: ER, PGR, BCL2, SCUBE2; invasion: MMP11, CTSL2; other: GSTM1, BAG1, CD68) plus 5 reference/housekeeping genes (ACTB, GAPDH, GUS, RPLPO, TFRC).",
     "genesAnalyzedCitations": "https://www.oncotarget.com/article/28148/text/",
     "geneListUrl": "https://www.exactsciences.com/cancer-testing/oncotype-dx-breast-recurrence-score-providers",
-    "biomarkersReported": ["Gene Expression Score", "Recurrence Score (0-100)", "ER", "PR", "HER2"],
+    "biomarkersReported": [
+      "Gene Expression Score",
+      "Recurrence Score (0-100)",
+      "ER",
+      "PR",
+      "HER2"
+    ],
     "biomarkersReportedNotes": "Provides continuous Recurrence Score (0-100) predicting 9-year distant recurrence risk and chemotherapy benefit. Also reports quantitative RNA expression of ER, PR, and HER2.",
     "biomarkersReportedCitations": "https://www.exactsciences.com/cancer-testing/oncotype-dx-breast-recurrence-score-providers",
-    "cancerTypes": ["Breast cancer (HR+, HER2-)"],
+    "cancerTypes": [
+      "Breast cancer (HR+, HER2-)"
+    ],
     "cancerTypesNotes": "Indicated for early-stage (Stage I, II, IIIA), hormone receptor-positive, HER2-negative invasive breast cancer. Applicable to node-negative or node-positive (1-3 nodes) disease.",
     "cancerTypesCitations": "https://www.exactsciences.com/cancer-testing/oncotype-dx-breast-recurrence-score-patients",
     "targetPopulation": "Patients with early-stage (Stage I-IIIA), HR+, HER2-, node-negative or node-positive (1-3 nodes) invasive breast cancer who are candidates for adjuvant systemic therapy",
@@ -871,7 +1186,12 @@
     "nccnGuidelineReference": "NCCN Breast Cancer Guidelines",
     "nccnGuidelinesNotes": "NCCN-preferred multigene assay with Category 1 evidence. Only test with Level 1 evidence for both prognosis AND prediction of chemotherapy benefit for HR+, HER2- breast cancer.",
     "nccnGuidelinesCitations": "https://www.nccn.org/guidelines/category_1",
-    "otherGuidelinesRecommended": ["ASCO", "ESMO", "St Gallen", "NICE"],
+    "otherGuidelinesRecommended": [
+      "ASCO",
+      "ESMO",
+      "St Gallen",
+      "NICE"
+    ],
     "otherGuidelinesNotes": "Incorporated into all major international breast cancer treatment guidelines including ASCO, ESMO, St Gallen Consensus, and NICE (UK). Only genomic assay with highest recommendation in 5 major international guidelines.",
     "otherGuidelinesCitations": "https://www.oncotypedxtest.com/healthcare-professionals/oncotype-dx-recommended-by-international-guidelines",
     "tat": "7-14 days",
@@ -895,7 +1215,16 @@
     "medicareRateCitations": "https://www.genomeweb.com/molecular-diagnostics/cms-restores-reimbursement-rate-oncotype-dx-breast-cancer-test",
     "medicareStatus": "Priced",
     "adltStatus": true,
-    "availableRegions": ["US", "UK", "EU", "Canada", "Israel", "Japan", "Australia", "International"],
+    "availableRegions": [
+      "US",
+      "UK",
+      "EU",
+      "Canada",
+      "Israel",
+      "Japan",
+      "Australia",
+      "International"
+    ],
     "availableRegionsNotes": "Available in 90+ countries. Publicly funded in UK, Ireland, Switzerland, Spain, Israel, Greece, and Canada. Samples shipped to centralized Genomic Health laboratory in Redwood City, CA (US) for testing.",
     "availableRegionsCitations": "https://www.prnewswire.com/news-releases/publication-in-the-new-england-journal-of-medicine-confirms-that-tens-of-thousands-of-women-with-node-positive-early-stage-breast-cancer-can-avoid-chemotherapy-with-the-oncotype-dx-test-301435658.html",
     "clinicalAvailability": "Commercially available since 2004; over 1 million patients tested worldwide",
@@ -910,7 +1239,11 @@
     "numPublicationsSource": "pubmed-estimate",
     "numPublicationsNotes": "Over 500 peer-reviewed publications. Bibliometric analysis identified 530+ publications as of 2016; publication count has increased substantially since TAILORx (2018) and RxPONDER (2021) results.",
     "numPublicationsCitations": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5459968/",
-    "publicationsExampleCitations": ["Paik S et al. N Engl J Med 2004;351:2817-2826", "Sparano JA et al. N Engl J Med 2018;379:111-121", "Kalinsky K et al. N Engl J Med 2021;385:2336-2347"],
+    "publicationsExampleCitations": [
+      "Paik S et al. N Engl J Med 2004;351:2817-2826",
+      "Sparano JA et al. N Engl J Med 2018;379:111-121",
+      "Kalinsky K et al. N Engl J Med 2021;385:2336-2347"
+    ],
     "technologyDifferentiator": "First commercially available multigene assay for breast cancer (2004). Pioneered genomic-guided treatment decisions in oncology. Only test with Level 1 evidence from prospective randomized trials (TAILORx, RxPONDER) demonstrating prediction of chemotherapy benefit. Transformed standard of care by enabling personalized chemotherapy decisions, sparing hundreds of thousands of patients from unnecessary chemotherapy. Gene expression profiling approach (not mutation detection) - fundamentally different methodology from CGP tests.",
     "regulatoryStatusNotes": "CLIA-certified LDT in clinical use since 2004. Not FDA approved but considered standard of care with Category 1 NCCN recommendation. Incorporated into AJCC 8th edition pathological prognostic staging.",
     "historicalSignificance": "Pioneered the era of genomic-guided personalized cancer care for breast cancer. In clinical use for over 20 years with over 1 million patients tested globally.",
@@ -938,10 +1271,32 @@
     "genesAnalyzedNotes": ">1,600 genes analyzed via cfRNA; cfDNA gene count not specified separately. Combined approach.",
     "genesAnalyzedCitations": "https://genomictestingcooperative.com/genomic-tests/liquid-trace-solid-tumor/",
     "geneListUrl": "https://genomictestingcooperative.com/genomic-tests/cfdna-genes/",
-    "biomarkersReported": ["SNVs", "Indels", "CNAs", "Fusions", "Gene Expression", "TMB", "Chromosomal Abnormalities", "T/B-cell Clonality", "HLA Genotyping", "Viral (EBV, HPV, TTV)"],
+    "biomarkersReported": [
+      "SNVs",
+      "Indels",
+      "CNAs",
+      "Fusions",
+      "Gene Expression",
+      "TMB",
+      "Chromosomal Abnormalities",
+      "T/B-cell Clonality",
+      "HLA Genotyping",
+      "Viral (EBV, HPV, TTV)"
+    ],
     "biomarkersReportedNotes": "cfRNA enables fusion detection and expression profiling not available from cfDNA-only tests. Viral detection includes EBV (lymphoid neoplasms), HPV (anogenital/oropharyngeal cancers), and TTV (immune competence marker).",
     "biomarkersReportedCitations": "https://genomictestingcooperative.com/genomic-tests/liquid-trace-solid-tumor/",
-    "cancerTypes": ["Lung", "Brain/CNS", "Breast", "Thyroid", "Colorectal", "Oropharyngeal", "Pancreatic", "Ovarian", "Prostate", "Other solid tumors"],
+    "cancerTypes": [
+      "Lung",
+      "Brain/CNS",
+      "Breast",
+      "Thyroid",
+      "Colorectal",
+      "Oropharyngeal",
+      "Pancreatic",
+      "Ovarian",
+      "Prostate",
+      "Other solid tumors"
+    ],
     "cancerTypesCitations": "https://genomictestingcooperative.com/genomic-tests/liquid-trace-solid-tumor/",
     "targetPopulation": "Patients with solid tumors requiring comprehensive genomic profiling for diagnosis, treatment selection, or monitoring. CSF samples accepted for CNS tumors (can add MGMT methylation analysis for brain tumors when tumor DNA detected).",
     "targetPopulationCitations": "https://genomictestingcooperative.com/genomic-tests/liquid-trace-solid-tumor/",
@@ -950,7 +1305,13 @@
     "fdaStatusCitations": "https://genomictestingcooperative.com/legal-licensing/licenses-cerifications/",
     "vendorClaimsNCCNAlignment": true,
     "vendorNCCNAlignmentCitation": "https://imagenedx.com/",
-    "vendorNCCNAlignmentIndications": ["NSCLC", "Breast Cancer", "Colorectal Cancer", "Prostate Cancer", "Ovarian Cancer"],
+    "vendorNCCNAlignmentIndications": [
+      "NSCLC",
+      "Breast Cancer",
+      "Colorectal Cancer",
+      "Prostate Cancer",
+      "Ovarian Cancer"
+    ],
     "vendorNCCNAlignmentNotes": "Covers guideline-recommended biomarkers. NCCN guidelines recommend testing specific genes/biomarkers but do not endorse specific commercial assays by name.",
     "tat": "5-7 days",
     "tatNotes": "RNA stability is 48-72 hours from blood draw; DNA stability is 7 days. Samples received beyond 72 hours may include only DNA results.",
@@ -963,7 +1324,11 @@
     "lodCitations": "https://genomictestingcooperative.com/genomic-tests/liquid-trace-solid-tumor/",
     "reimbursement": "Medicare",
     "reimbursementNote": "Medicare covered. Contact GTC for current payer coverage information.",
-    "availableRegions": ["US", "EU", "UK"],
+    "availableRegions": [
+      "US",
+      "EU",
+      "UK"
+    ],
     "availableRegionsNotes": "NYSDOH approved. CE-marked for EU. UKCA certified for UK. US-based laboratory with international representatives.",
     "availableRegionsCitations": "https://genomictestingcooperative.com/international-representatives/",
     "clinicalAvailability": "Commercially available",
@@ -1001,10 +1366,32 @@
     "genesAnalyzedNotes": ">1,600 genes analyzed via cfRNA; combined cfDNA + cfRNA approach.",
     "genesAnalyzedCitations": "https://genomictestingcooperative.com/genomic-tests/liquid-trace-hematologic-malignancies/",
     "geneListUrl": "https://genomictestingcooperative.com/genomic-tests/cfdna-genes/",
-    "biomarkersReported": ["SNVs", "Indels", "CNAs", "Fusions", "Gene Expression", "Chromosomal Abnormalities", "T/B-cell Clonality", "HLA Genotyping", "TTV Viral Load", "CAR-T Detection"],
+    "biomarkersReported": [
+      "SNVs",
+      "Indels",
+      "CNAs",
+      "Fusions",
+      "Gene Expression",
+      "Chromosomal Abnormalities",
+      "T/B-cell Clonality",
+      "HLA Genotyping",
+      "TTV Viral Load",
+      "CAR-T Detection"
+    ],
     "biomarkersReportedNotes": "T/B-cell clonality detection important for diagnosis and monitoring of lymphoid and plasma cell malignancies. TTV (Torque Teno Virus) load serves as immune competence marker - high TTV associated with infection risk, low TTV with rejection risk in transplant patients. Can detect and monitor CAR-T cells in CSF.",
     "biomarkersReportedCitations": "https://genomictestingcooperative.com/genomic-tests/liquid-trace-hematologic-malignancies/",
-    "cancerTypes": ["Multiple Myeloma", "Lymphoma", "Acute Lymphoblastic Leukemia (ALL)", "Acute Myeloid Leukemia (AML)", "Myelodysplastic Syndrome (MDS)", "Chronic Myelomonocytic Leukemia (CMML)", "Myeloproliferative Neoplasms (MPN)", "VEXAS Syndrome", "EBV-related Neoplasms", "Hypereosinophilia"],
+    "cancerTypes": [
+      "Multiple Myeloma",
+      "Lymphoma",
+      "Acute Lymphoblastic Leukemia (ALL)",
+      "Acute Myeloid Leukemia (AML)",
+      "Myelodysplastic Syndrome (MDS)",
+      "Chronic Myelomonocytic Leukemia (CMML)",
+      "Myeloproliferative Neoplasms (MPN)",
+      "VEXAS Syndrome",
+      "EBV-related Neoplasms",
+      "Hypereosinophilia"
+    ],
     "cancerTypesCitations": "https://genomictestingcooperative.com/genomic-tests/liquid-trace-hematologic-malignancies/",
     "targetPopulation": "Patients with hematologic malignancies requiring comprehensive genomic profiling for diagnosis, classification, treatment selection, or monitoring. Alternative to bone marrow biopsy in many cases. CSF samples for CNS involvement characterization and CAR-T monitoring.",
     "targetPopulationCitations": "https://genomictestingcooperative.com/genomic-tests/liquid-trace-hematologic-malignancies/",
@@ -1013,7 +1400,11 @@
     "fdaStatusCitations": "https://genomictestingcooperative.com/legal-licensing/licenses-cerifications/",
     "vendorClaimsNCCNAlignment": true,
     "vendorNCCNAlignmentCitation": "https://imagenedx.com/",
-    "vendorNCCNAlignmentIndications": ["Acute Myeloid Leukemia", "Multiple Myeloma", "B-Cell Lymphomas"],
+    "vendorNCCNAlignmentIndications": [
+      "Acute Myeloid Leukemia",
+      "Multiple Myeloma",
+      "B-Cell Lymphomas"
+    ],
     "vendorNCCNAlignmentNotes": "Covers guideline-recommended biomarkers for hematologic malignancies. NCCN guidelines recommend testing specific genes/biomarkers but do not endorse specific commercial assays by name.",
     "tat": "5-7 days",
     "tatNotes": "RNA stability is 48-72 hours from blood draw; DNA stability is 7 days. Samples received beyond 72 hours may include only DNA results.",
@@ -1026,7 +1417,11 @@
     "lodCitations": "https://genomictestingcooperative.com/genomic-tests/liquid-trace-hematologic-malignancies/",
     "reimbursement": "Medicare",
     "reimbursementNote": "Medicare covered. Contact GTC for current payer coverage information.",
-    "availableRegions": ["US", "EU", "UK"],
+    "availableRegions": [
+      "US",
+      "EU",
+      "UK"
+    ],
     "availableRegionsNotes": "NYSDOH approved. CE-marked for EU. UKCA certified for UK. US-based laboratory with international representatives.",
     "availableRegionsCitations": "https://genomictestingcooperative.com/international-representatives/",
     "clinicalAvailability": "Commercially available",
@@ -1083,10 +1478,18 @@
     "rnaGenesAnalyzedNotes": "10 ctRNA targets for actionable and emerging fusions: ALK, FGFR2, FGFR3, MET, NTRK1, NTRK2, RET, ROS1, TMPRSS2.",
     "rnaGenesAnalyzedCitations": "https://www.mayocliniclabs.com/test-catalog/overview/622811",
     "geneListUrl": "https://www.mayocliniclabs.com/it-mmfiles/LiquidHALLMARK-Targets-by-Cancer-Type.pdf",
-    "biomarkersReported": ["SNVs", "Indels", "CNAs", "Fusions", "MSI"],
-    "biomarkersReportedNotes": "MSI determined from 6 microsatellite loci (BAT25, BAT26, NR21, NR24, NR27, MONO27). MSI-H = 2+ sites, MSI-L = 1 site.",
+    "biomarkersReported": [
+      "SNVs",
+      "Indels",
+      "CNAs",
+      "Fusions (cfDNA + cfRNA)",
+      "MSI"
+    ],
+    "biomarkersReportedNotes": "SNVs, Indels, CNAs, and MSI detected from cfDNA. Fusions detected from both cfDNA and cfRNA for enhanced sensitivity. MSI determined from 6 microsatellite loci (BAT25, BAT26, NR21, NR24, NR27, MONO27). MSI-H = 2+ sites, MSI-L = 1 site.",
     "biomarkersReportedCitations": "https://www.mayocliniclabs.com/test-catalog/overview/622811",
-    "cancerTypes": ["Solid tumors (lung, breast, colon, prostate, ovarian, gastric, liver, pancreatic, bladder, kidney, thyroid, melanoma, endometrial, cervical, head & neck)"],
+    "cancerTypes": [
+      "Solid tumors (lung, breast, colon, prostate, ovarian, gastric, liver, pancreatic, bladder, kidney, thyroid, melanoma, endometrial, cervical, head & neck)"
+    ],
     "cancerTypesNotes": "Targets genes commonly associated with 15 cancer types.",
     "cancerTypesCitations": "https://www.lucence.com/solutions/liquid-hallmark | https://www.mayocliniclabs.com/test-catalog/overview/622811",
     "targetPopulation": "Patients with solid tumors requiring genomic profiling when tissue biopsy is not feasible or as complement to tissue testing",
@@ -1105,10 +1508,15 @@
     "fdaStatusCitations": "https://www.mayocliniclabs.com/test-catalog/overview/622811",
     "vendorClaimsNCCNAlignment": true,
     "vendorNCCNAlignmentCitation": "https://www.luminexcorp.com/",
-    "vendorNCCNAlignmentIndications": ["NSCLC", "Breast Cancer", "Colorectal Cancer", "Prostate Cancer"],
+    "vendorNCCNAlignmentIndications": [
+      "NSCLC",
+      "Breast Cancer",
+      "Colorectal Cancer",
+      "Prostate Cancer"
+    ],
     "vendorNCCNAlignmentNotes": "Covers 9 NCCN guideline-recommended biomarkers for NSCLC: EGFR, ALK, RET, ROS1, BRAF, KRAS, MET, ERBB2, NTRK1/2/3. LIQUIK study showed LiquidHALLMARK detected 15.6% more tissue-confirmed, NCCN guideline-recommended biomarkers than FDA-approved ctDNA-only test.",
-    "tat": "8-12 days",
-    "tatNotes": "Results typically available 8-12 days from receipt of specimen. Test performed Monday through Friday.",
+    "tat": "7 Business Days",
+    "tatNotes": "Results typically available in 7 business days from receipt of specimen. Test performed Monday through Friday.",
     "tatCitations": "https://www.mayocliniclabs.com/test-catalog/overview/622811",
     "sampleRequirements": "20mL whole blood in 2x Streck cfDNA BCT tubes (10mL each); 4-day stability at ambient temperature",
     "sampleRequirementsNotes": "Do not centrifuge or aliquot. Invert tubes to mix blood. Ship at ambient temperature. Gross hemolysis, lipemia, or icterus will result in rejection.",
@@ -1119,7 +1527,11 @@
     "cptCodes": "0571U",
     "cptCodesCitations": "https://www.mayocliniclabs.com/test-catalog/overview/622811",
     "codeType": "PLA",
-    "availableRegions": ["US", "Singapore", "International"],
+    "availableRegions": [
+      "US",
+      "Singapore",
+      "International"
+    ],
     "availableRegionsNotes": "US: Available via Mayo Clinic Labs (since March 2025) and Lucence Palo Alto lab (CLIA 05D2200843). Singapore: Lucence headquarters with CLIA/CAP-certified lab. International: Turkey (via Omnigen), India (via Agilus Diagnostics). NOT available in NY State.",
     "availableRegionsCitations": "https://www.mayocliniclabs.com/test-catalog/overview/622811 | https://www.lucence.com/about",
     "clinicalAvailability": "Commercially available in US since 2021; available via Mayo Clinic Labs since March 2025",
@@ -1157,8 +1569,12 @@
       "submitterEmail": "jeremy.au@lucence.com",
       "submitterType": "Vendor Representative",
       "submissionDate": "2025-12-19",
-      "submissionNotes": "New test submission via OpenOnco form. Performance data URLs provided: Mayo Clinic Labs catalog and Lucence website. Verified via Mayo Clinic Labs test catalog (LUCHM), Lucence press releases, PLoS One 2022 validation study, and JCO Precision Oncology 2025 LIQUIK study."
-    }
+      "submissionNotes": "New test submission via OpenOnco form. Performance data URLs provided: Mayo Clinic Labs catalog and Lucence website. Verified via Mayo Clinic Labs test catalog (LUCHM), Lucence press releases, PLoS One 2022 validation study, and JCO Precision Oncology 2025 LIQUIK study.",
+      "vendorVerifiedDate": "2026-01-07",
+      "vendorVerifiedBy": "Jeremy Au",
+      "vendorVerifiedNotes": "Vendor verified via OpenOnco validation form. Updates: TAT changed from 8-12 days to 7 Business Days; biomarkersReported clarified to note cfDNA+cfRNA sources for fusion detection."
+    },
+    "vendorVerified": true
   },
   {
     "id": "tds-23",
@@ -1175,10 +1591,17 @@
     "genesAnalyzedNotes": "109 genes: 103 with SNV/indel detection (64% with full CDS coverage), 54 with CNA detection, 13 with fusion detection.",
     "genesAnalyzedCitations": "https://www.resolutionbio.com/assays/Resolution-ctDx-FIRST.html",
     "geneListUrl": "https://www.resolutionbio.com/assays/Resolution-ctDx-FIRST.html",
-    "biomarkersReported": ["SNVs", "Indels", "CNAs", "Fusions"],
+    "biomarkersReported": [
+      "SNVs",
+      "Indels",
+      "CNAs",
+      "Fusions"
+    ],
     "biomarkersReportedNotes": "FDA-approved for KRAS G12C and EGFR SNVs/deletions. Professional services (CLIA) includes all 109 genes across 4 alteration types.",
     "biomarkersReportedCitations": "https://www.accessdata.fda.gov/cdrh_docs/pdf21/P210040B.pdf",
-    "cancerTypes": ["NSCLC"],
+    "cancerTypes": [
+      "NSCLC"
+    ],
     "cancerTypesNotes": "FDA indication limited to NSCLC. Professional services portion applicable to other solid tumors per oncologist discretion.",
     "cancerTypesCitations": "https://www.fda.gov/medical-devices/recently-approved-devices/agilent-resolution-ctdx-first-p210040",
     "targetPopulation": "Adults with locally advanced or metastatic NSCLC requiring KRAS G12C or EGFR mutation testing for targeted therapy selection",
@@ -1196,12 +1619,16 @@
     "fdaStatusNotes": "PMA P210040 approved December 12, 2022. CDx for KRAS G12C to identify NSCLC patients eligible for adagrasib (KRAZATI). Also FDA-approved for EGFR tumor profiling per professional guidelines.",
     "fdaStatusCitations": "https://www.fda.gov/medical-devices/recently-approved-devices/agilent-resolution-ctdx-first-p210040",
     "fdaCompanionDxCount": 1,
-    "fdaCompanionDxList": ["Adagrasib (KRAZATI) - KRAS G12C - NSCLC"],
+    "fdaCompanionDxList": [
+      "Adagrasib (KRAZATI) - KRAS G12C - NSCLC"
+    ],
     "fdaCompanionDxNotes": "First liquid biopsy NGS CDx approved for adagrasib. If plasma negative, FDA recommends reflex to tissue testing with FDA-approved test.",
     "fdaCompanionDxCitations": "https://www.accessdata.fda.gov/cdrh_docs/pdf21/P210040A.pdf",
     "vendorClaimsNCCNAlignment": true,
     "vendorNCCNAlignmentCitation": "https://resolutionbio.com/",
-    "vendorNCCNAlignmentIndications": ["NSCLC"],
+    "vendorNCCNAlignmentIndications": [
+      "NSCLC"
+    ],
     "vendorNCCNAlignmentNotes": "Covers NCCN-recommended biomarkers for NSCLC including KRAS G12C and EGFR. 109-gene panel includes ALK, ROS1, RET, BRAF, MET, ERBB2, NTRK1/2/3.",
     "tat": "~9 days",
     "tatNotes": "Based on ctDx platform performance; median TAT 9 days vs 20 days for tissue NGS in prospective NSCLC study.",
@@ -1212,7 +1639,9 @@
     "reimbursement": "Medicare + Commercial",
     "reimbursementNote": "Resolution ctDx platform covered by Medicare and private payors. FDA-approved CDx status supports coverage for NSCLC patients.",
     "reimbursementCitations": "https://www.resolutionbio.com/company/press/2021.01.11_resolution_mirati_cdx.html",
-    "availableRegions": ["US"],
+    "availableRegions": [
+      "US"
+    ],
     "availableRegionsNotes": "Single-site PMA test performed at Resolution Bioscience CLIA lab, Kirkland, WA. Available via Quest Diagnostics network (Jan 2023). Specimens collected at 2,100+ Quest patient service centers nationwide.",
     "availableRegionsCitations": "https://clpmag.com/diagnostic-technologies/immunoassay/immunoassay-reagents-kits/quest-diagnostics-offers-agilents-resolution-ctdx-first-liquid-biopsy-test/",
     "clinicalAvailability": "Commercially available since December 2022 (FDA approval); Quest Diagnostics distribution since January 2023",
@@ -1258,7 +1687,10 @@
     "genesAnalyzed": 168,
     "genesAnalyzedNotes": "168-gene panel (LDT version); CE-marked version covers 101 genes",
     "genesAnalyzedCitations": "https://doi.org/10.1016/S2213-2600(18)30264-9",
-    "cancerTypes": ["NSCLC", "Pan-solid tumor"],
+    "cancerTypes": [
+      "NSCLC",
+      "Pan-solid tumor"
+    ],
     "cancerTypesNotes": "Primary validation in metastatic NSCLC (BENEFIT trial); applicable to pan-solid tumors for CGP",
     "cancerTypesCitations": "https://doi.org/10.1016/S2213-2600(18)30264-9",
     "sensitivity": 96,
@@ -1304,8 +1736,17 @@
     "methodCitations": "https://us.brbiotech.com/fixed-panels/",
     "genesAnalyzed": 13,
     "genesAnalyzedNotes": "13 genes: EGFR, ALK, ROS1, RET, MET, ERBB2, BRAF, PIK3CA, KRAS, NRAS, HRAS, KIT, PDGFRA",
-    "biomarkersReported": ["SNVs", "Indels", "CNAs", "Fusions"],
-    "cancerTypes": ["NSCLC", "CRC", "GIST"],
+    "biomarkersReported": [
+      "SNVs",
+      "Indels",
+      "CNAs",
+      "Fusions"
+    ],
+    "cancerTypes": [
+      "NSCLC",
+      "CRC",
+      "GIST"
+    ],
     "cancerTypesNotes": "Focused panel for lung cancer therapy selection; covers key actionable genes for NSCLC, colorectal cancer, and gastrointestinal stromal tumors",
     "cancerTypesCitations": "https://us.brbiotech.com/fixed-panels/",
     "fdaStatus": "CLIA LDT (US); CE-IVD kit version available",
@@ -1333,7 +1774,9 @@
     "approach": "Tissue CGP",
     "method": "Hybrid-capture NGS covering 517 genes; detects SNVs, indels, CNAs, fusions/rearrangements; reports TMB, MSI status",
     "genesAnalyzed": 517,
-    "cancerTypes": ["Pan-solid tumor"],
+    "cancerTypes": [
+      "Pan-solid tumor"
+    ],
     "indicationsNotes": "First FDA-approved distributable CGP IVD kit. Enables hospitals to bring comprehensive genomic profiling in-house. CE-IVD since March 2022.",
     "fdaStatus": "FDA-approved (Aug 2024); CE-IVD",
     "fdaCompanionDxCount": 2,
@@ -1343,7 +1786,11 @@
     "msi": "Yes",
     "msiNotes": "MSI status determined from NGS data",
     "reimbursement": "Medicare LCD (MolDX)",
-    "commercialPayers": ["UnitedHealthcare", "Aetna", "Cigna"],
+    "commercialPayers": [
+      "UnitedHealthcare",
+      "Aetna",
+      "Cigna"
+    ],
     "clinicalAvailability": "FDA-approved IVD kit",
     "tat": "10-14 days",
     "totalParticipants": 10000,
@@ -1361,9 +1808,11 @@
     "approach": "Tissue CGP",
     "method": "Hybrid-capture NGS panel covering 425 cancer-related genes; detects SNVs, indels, CNAs, fusions; reports TMB and MSI",
     "genesAnalyzed": 425,
-    "cancerTypes": ["Pan-solid tumor"],
-    "indicationsNotes": "FDA 510(k) cleared August 2025 (K-number pending publication). Also CE-IVDR and NMPA (China) approved. First Chinese CGP to receive FDA clearance.",
-    "fdaStatus": "FDA 510(k) cleared (Aug 2025); CE-IVDR; NMPA",
+    "cancerTypes": [
+      "Pan-solid tumor"
+    ],
+    "indicationsNotes": "FDA 510(k) cleared August 2025 (K-number pending publication). Also CE-IVDD and NMPA (China) approved. First Chinese CGP to receive FDA clearance.",
+    "fdaStatus": "FDA 510(k) cleared (Aug 2025); CE-IVDD; NMPA",
     "tmb": "Yes",
     "msi": "Yes",
     "reimbursement": "Emerging - new FDA clearance",
@@ -1372,7 +1821,9 @@
     "totalParticipants": 50000,
     "numPublications": 100,
     "numPublicationsPlus": true,
-    "technologyDifferentiator": "Global regulatory approvals (FDA, CE-IVDR, NMPA). Fresh FDA clearance (Sep 2025). Established in Asia market with US expansion. Competitive pricing expected."
+    "technologyDifferentiator": "Global regulatory approvals (FDA, CE-IVDD, NMPA). Fresh FDA clearance (Aug 2025). Established in Asia market with US expansion. Competitive pricing expected.",
+    "vendorVerified": true,
+    "vendorRequestedChanges": "2026-01-12: Vendor verified by Ruoying Yu, Director Medical & Commercial Affairs, Geneseeq. Corrected CE-IVDR to CE-IVDD."
   },
   {
     "id": "tds-kit-3",
@@ -1384,13 +1835,18 @@
     "approach": "Tissue CGP",
     "method": "Hybrid-capture NGS covering ~500 genes; comprehensive solid tumor profiling including SNVs, indels, CNAs, MSI, TMB",
     "genesAnalyzed": 505,
-    "cancerTypes": ["Pan-solid tumor"],
+    "cancerTypes": [
+      "Pan-solid tumor"
+    ],
     "indicationsNotes": "FDA-cleared and CE-IVDR (July 2025). First and only test CE-marked for comprehensive solid tumor profiling under new EU IVDR regulation.",
     "fdaStatus": "FDA-cleared; CE-IVDR (Jul 2025)",
     "tmb": "Yes",
     "msi": "Yes",
     "reimbursement": "Medicare LCD coverage",
-    "commercialPayers": ["UnitedHealthcare", "Aetna"],
+    "commercialPayers": [
+      "UnitedHealthcare",
+      "Aetna"
+    ],
     "clinicalAvailability": "FDA-cleared IVD kit",
     "tat": "10-14 days",
     "totalParticipants": 5000,
@@ -1407,7 +1863,9 @@
     "approach": "Tissue CGP",
     "method": "Amplicon-based NGS covering 500+ genes from DNA and RNA; detects SNVs, indels, CNAs, and fusions including novel fusions via RNA",
     "genesAnalyzed": 500,
-    "cancerTypes": ["Pan-solid tumor"],
+    "cancerTypes": [
+      "Pan-solid tumor"
+    ],
     "indicationsNotes": "Primarily positioned for oncology research. DNA+RNA workflow captures both mutation and fusion biomarkers. Popular choice for labs with Ion Torrent infrastructure. CE-IVD/IVDR status requires verification.",
     "fdaStatus": "RUO in US; CE-IVD status pending verification",
     "tmb": "Yes",
@@ -1430,7 +1888,9 @@
     "approach": "Tissue CGP",
     "method": "Hybrid-capture NGS covering 523 genes from DNA and RNA; comprehensive detection of SNVs, indels, CNAs, fusions, TMB, MSI",
     "genesAnalyzed": 523,
-    "cancerTypes": ["Pan-solid tumor"],
+    "cancerTypes": [
+      "Pan-solid tumor"
+    ],
     "indicationsNotes": "RUO (Research Use Only) comprehensive genomic profiling panel for clinical research. Predecessor to TSO Comprehensive (FDA-approved IVD). For clinical diagnostic use, use TSO Comprehensive.",
     "fdaStatus": "RUO",
     "tmb": "Yes",
@@ -1454,7 +1914,9 @@
     "method": "Real-time PCR detection of 42 EGFR mutations including exon 19 deletions, L858R, T790M resistance mutation, and exon 20 insertions",
     "genesAnalyzed": 1,
     "genesAnalyzedNotes": "Single-gene test targeting EGFR only (42 specific mutations)",
-    "cancerTypes": ["NSCLC"],
+    "cancerTypes": [
+      "NSCLC"
+    ],
     "targetPopulation": "NSCLC patients for EGFR TKI therapy selection",
     "indicationsNotes": "FDA-approved companion diagnostic for multiple EGFR TKIs. First liquid biopsy test FDA-approved (June 2016). Detects T790M resistance mutation for osimertinib eligibility.",
     "sensitivity": 85,
@@ -1489,7 +1951,9 @@
     "method": "Real-time PCR detection of KRAS mutations in codons 12, 13, and 61",
     "genesAnalyzed": 1,
     "genesAnalyzedNotes": "Single-gene test targeting KRAS only (codons 12, 13, 61)",
-    "cancerTypes": ["Colorectal cancer"],
+    "cancerTypes": [
+      "Colorectal cancer"
+    ],
     "targetPopulation": "mCRC patients for anti-EGFR therapy selection",
     "indicationsNotes": "FDA-approved companion diagnostic for cetuximab and panitumumab. KRAS wild-type required for anti-EGFR therapy eligibility.",
     "sensitivity": 95,
@@ -1521,7 +1985,9 @@
     "method": "Scorpions ARMS real-time PCR for EGFR exon 19 deletions, L858R, T790M, and other sensitizing mutations",
     "genesAnalyzed": 1,
     "genesAnalyzedNotes": "Single-gene test targeting EGFR only",
-    "cancerTypes": ["NSCLC"],
+    "cancerTypes": [
+      "NSCLC"
+    ],
     "targetPopulation": "NSCLC patients for EGFR TKI therapy selection",
     "indicationsNotes": "CE-IVD marked. Widely used in EU and Asia. FDA-approved for tissue; CE-IVD for plasma.",
     "sensitivity": 80,
@@ -1553,7 +2019,9 @@
     "method": "BEAMing (Beads, Emulsion, Amplification, Magnetics) digital PCR for extended RAS panel including KRAS exons 2-4 and NRAS exons 2-4",
     "genesAnalyzed": 2,
     "genesAnalyzedNotes": "Two-gene panel: KRAS (exons 2-4) and NRAS (exons 2-4)",
-    "cancerTypes": ["Colorectal cancer"],
+    "cancerTypes": [
+      "Colorectal cancer"
+    ],
     "targetPopulation": "mCRC patients for anti-EGFR therapy selection",
     "indicationsNotes": "CE-IVD marked for RAS testing in mCRC. Extended RAS panel covers all clinically relevant mutations. Ultra-sensitive digital PCR platform.",
     "sensitivity": 95,
@@ -1586,7 +2054,9 @@
     "method": "NGS-based ~70-gene ctDNA panel; detects SNVs, indels, CNAs, and select fusions across pan-solid tumor biomarkers",
     "genesAnalyzed": 70,
     "genesAnalyzedNotes": "Approximately 70 genes covering pan-solid tumor biomarkers",
-    "cancerTypes": ["Pan-solid tumor"],
+    "cancerTypes": [
+      "Pan-solid tumor"
+    ],
     "targetPopulation": "Advanced solid tumor patients for therapy selection",
     "indicationsNotes": "FDA De Novo authorized - first FDA-authorized pan-tumor liquid biopsy IVD kit. Enables decentralized NGS liquid biopsy testing.",
     "sensitivity": 90,
@@ -1652,8 +2122,19 @@
     "method": "Hybrid capture-based NGS covering 32 genes; detects SNVs, indels, CNVs, fusions; reports MSI status. DNA-only workflow optimized for ctDNA with UMI/UDI error correction.",
     "methodCitations": "https://pubmed.ncbi.nlm.nih.gov/41015181/",
     "genesAnalyzed": 32,
-    "biomarkersReported": ["SNVs", "Indels", "CNAs", "Fusions", "MSI"],
-    "cancerTypes": ["Pan-solid tumor", "NSCLC", "Breast", "Colorectal"],
+    "biomarkersReported": [
+      "SNVs",
+      "Indels",
+      "CNAs",
+      "Fusions",
+      "MSI"
+    ],
+    "cancerTypes": [
+      "Pan-solid tumor",
+      "NSCLC",
+      "Breast",
+      "Colorectal"
+    ],
     "targetPopulation": "Advanced solid tumor patients for biomarker-guided therapy selection",
     "indicationsNotes": "Decentralized IVD kit for in-house liquid biopsy testing. Covers >80% of ESCAT Level I genes including ESR1, METex14, and MSI. Requires local validation under CE-IVDR for routine clinical use. Paired with Hedera Prime CE-IVD software for automated OncoKB-powered reporting.",
     "sensitivity": 97,
@@ -1672,7 +2153,10 @@
     "fdaStatusNotes": "Hedera Prime software is CE-IVD registered medical device. Panel labeled for Performance Studies Only - requires local validation under CE-IVDR for clinical use. Not available in US.",
     "reimbursement": "Coverage varies by country",
     "clinicalAvailability": "CE-IVD kit (EU/International)",
-    "availableRegions": ["EU", "International"],
+    "availableRegions": [
+      "EU",
+      "International"
+    ],
     "totalParticipants": 137,
     "totalParticipantsNotes": "International multicenter analytical validation across 10+ centers in 8 countries (France, Germany, Austria, Netherlands, Spain, Italy, Greece, India)",
     "numPublications": 1,
@@ -1690,8 +2174,15 @@
     "methodCitations": "https://www.personalgenome.com/products/elio-plasma-focus-dx | https://www.prnewswire.com/news-releases/labcorp-launches-molecular-residual-disease-and-liquid-biopsy-solutions-302435767.html",
     "genesAnalyzed": 33,
     "genesAnalyzedNotes": "33 genes for SNVs/indels, 5 genes for CNA amplifications (CCND1, CD274, ERBB2, FGFR2, MET), 3 genes for translocations (ALK, NTRK1, RET). Focused panel targeting guideline-recommended biomarkers.",
-    "biomarkersReported": ["SNVs", "Indels", "CNAs (amplification)", "Translocations"],
-    "cancerTypes": ["Pan-solid tumors"],
+    "biomarkersReported": [
+      "SNVs",
+      "Indels",
+      "CNAs (amplification)",
+      "Translocations"
+    ],
+    "cancerTypes": [
+      "Pan-solid tumors"
+    ],
     "cancerTypesNotes": "Indicated for use across a wide range of solid tumor types, particularly when tumor tissue is limited or unavailable. Compatible with PGDx elio tissue complete for seamless tissue-to-liquid reflexing workflows.",
     "targetPopulation": "Patients with advanced solid tumors requiring genomic profiling when tumor tissue is unavailable or insufficient",
     "indicationsNotes": "First and only FDA-authorized kitted pan-solid tumor liquid biopsy test. Enables laboratories to retain control over patient specimens and data. As FDA-authorized IVD, requires only on-site verification (not full validation) for rapid implementation.",
@@ -1714,7 +2205,9 @@
     "reimbursement": "Coverage emerging",
     "reimbursementNote": "FDA-authorized IVD kit. Labs retain sample and data ownership. Reimbursement varies by payer; contact Labcorp for guidance.",
     "clinicalAvailability": "Commercially available (US) since April 2025",
-    "availableRegions": ["US"],
+    "availableRegions": [
+      "US"
+    ],
     "listPrice": null,
     "listPriceNotes": "Contact Labcorp/PGDx for pricing. Kitted model allows laboratory control over pricing and workflows.",
     "numPublications": 1,
@@ -1736,8 +2229,17 @@
     "methodCitations": "https://us.brbiotech.com/p_details.php?class_id=102101101",
     "genesAnalyzed": 13,
     "genesAnalyzedNotes": "13 genes: EGFR, ALK, ROS1, RET, MET, ERBB2, BRAF, PIK3CA, KRAS, NRAS, HRAS, KIT, PDGFRA. Covers EMA/FDA/NMPA-approved targeted therapy biomarkers.",
-    "biomarkersReported": ["SNVs", "Indels", "CNAs", "Fusions"],
-    "cancerTypes": ["NSCLC", "CRC", "GIST"],
+    "biomarkersReported": [
+      "SNVs",
+      "Indels",
+      "CNAs",
+      "Fusions"
+    ],
+    "cancerTypes": [
+      "NSCLC",
+      "CRC",
+      "GIST"
+    ],
     "cancerTypesNotes": "CE-marked CDx for non-small cell lung cancer, colorectal cancer, and gastrointestinal stromal tumor",
     "cancerTypesCitations": "https://us.brbiotech.com/p_details.php?class_id=102101101",
     "sensitivity": 100,
@@ -1777,8 +2279,18 @@
     "methodCitations": "https://www.brbiotech.com/en/p_details.php?class_id=102101102 | https://pubmed.ncbi.nlm.nih.gov/35305253/",
     "genesAnalyzed": 520,
     "genesAnalyzedNotes": "520 NCCN-recommended cancer-related genes spanning 1.64 Mb (312 genes with full exon coverage, 208 with selected regions). Comprehensive coverage for immunotherapy and targeted therapy.",
-    "biomarkersReported": ["SNVs", "Indels", "CNAs", "Fusions", "TMB", "MSI", "HRD"],
-    "cancerTypes": ["Pan-solid tumor"],
+    "biomarkersReported": [
+      "SNVs",
+      "Indels",
+      "CNAs",
+      "Fusions",
+      "TMB",
+      "MSI",
+      "HRD"
+    ],
+    "cancerTypes": [
+      "Pan-solid tumor"
+    ],
     "cancerTypesNotes": "Validated across 20 solid tumor types including lung (n=1971), GI (n=625), breast (n=120), gynecological (n=110), genitourinary (n=38)",
     "cancerTypesCitations": "https://pubmed.ncbi.nlm.nih.gov/35305253/",
     "sensitivity": 97,
@@ -1799,7 +2311,9 @@
     "fdaStatusNotes": "CE-marked June 2022. Japan MHLW approved Sept 2025 as CDx for capivasertib (AstraZeneca) - detects PIK3CA, AKT1, PTEN for HR+/HER2- breast cancer.",
     "fdaStatusCitations": "https://us.brbiotech.com/details.php?class_id=105107103&id=437 | https://www.globenewswire.com/news-release/2025/09/24/3155203/0/en/Burning-Rock-s-OncoGuide-OncoScreen-Plus-CDx-System-Now-Approved-in-Japan-as-a-Companion-Diagnostic-for-Capivasertib-in-Breast-Cancer.html",
     "fdaCompanionDxCount": 1,
-    "fdaCompanionDxList": ["Capivasertib (Japan MHLW) - PIK3CA/AKT1/PTEN - HR+/HER2- breast cancer"],
+    "fdaCompanionDxList": [
+      "Capivasertib (Japan MHLW) - PIK3CA/AKT1/PTEN - HR+/HER2- breast cancer"
+    ],
     "fdaCompanionDxNotes": "Japan MHLW CDx approval (Sept 2025) via Riken Genesis partnership. OncoGuide OncoScreen Plus CDx System for capivasertib therapy selection.",
     "clinicalAvailability": "CE-IVD kit available in Europe, Japan (CDx), and international markets",
     "clinicalAvailabilityNotes": "Compatible with MGI DNBSEQ-G400 sequencer (Japan). Burning Rock Biotech Limited (NASDAQ: BNR, LSE: BNR)",
@@ -1819,5 +2333,134 @@
     "tatCitations": "https://www.prnewswire.com/news-releases/burning-rock-dx-launches-magnis-br-to-innovate-total-process-automation-for-ngs-testing-300960507.html",
     "vendorVerified": false,
     "vendorRequestedChanges": "2025-01-01: Initial submission from Liankai Chi, PhD, Senior Marketing Manager, Burning Rock Dx. Originally rejected as tissue-only; scope expanded to include tissue tests."
+  },
+  {
+    "id": "tds-26",
+    "sampleCategory": "Blood/Plasma",
+    "name": "CellSight DNA",
+    "vendor": "Cancer Cell Dx",
+    "category": "TDS",
+    "dateAdded": "Jan 7, 2026",
+    "approach": "CTC-based comprehensive genomic profiling",
+    "method": "Analyzes intact circulating tumor cells (not just ctDNA fragments) for comprehensive mutation profiling using 500+ gene NGS panel; captures whole tumor cell biology including resistance mechanisms",
+    "methodCitations": "https://cancercelldx.com/cellsight-dna/",
+    "genesAnalyzed": 500,
+    "genesAnalyzedNotes": "500+ gene panel designed for broad genomic coverage across diverse solid tumors",
+    "biomarkersReported": [
+      "SNVs",
+      "Indels",
+      "MSI",
+      "TMB"
+    ],
+    "biomarkersReportedNotes": "Reports SNVs, indels, microsatellite instability (MSI), and tumor mutational burden (TMB)",
+    "cancerTypes": [
+      "Pan-solid tumor"
+    ],
+    "cancerTypesNotes": "Validated across wide range of solid tumors; particularly useful when tissue biopsy not feasible",
+    "sensitivity": 99,
+    "sensitivityNotes": ">99% analytical sensitivity per vendor validation",
+    "sensitivityCitations": "https://cancercelldx.com/cellsight-dna/",
+    "lod": "5%",
+    "lodNotes": "5% limit of detection for variant calling",
+    "lodCitations": "https://cancercelldx.com/cellsight-dna/",
+    "ppv": 97,
+    "ppvNotes": ">97% positive predictive value",
+    "ppvCitations": "https://cancercelldx.com/cellsight-dna/",
+    "fdaStatus": "CLIA LDT",
+    "fdaStatusNotes": "CLIA-certified laboratory-developed test",
+    "reimbursement": "Patient-centered billing approach",
+    "reimbursementNote": "Clear billing designed to avoid patient surprises per vendor",
+    "clinicalAvailability": "Commercially available in US",
+    "tat": "5-7 days",
+    "tatNotes": "Target turnaround of 5-7 days",
+    "tatCitations": "https://cancercelldx.com/cellsight-dna/",
+    "sampleType": "Blood",
+    "numPublications": 0,
+    "numPublicationsNotes": "New test; peer-reviewed publications pending",
+    "isRUO": false,
+    "isInvestigational": false,
+    "isClinicalLDT": true,
+    "regulatoryStatusNotes": "CLIA-certified LDT",
+    "vendorVerified": true,
+    "technologyDifferentiator": "CTC-based (whole tumor cells) rather than ctDNA fragments - captures complete tumor cell biology including resistance mechanisms that fragment-based approaches may miss; ideal for difficult-to-biopsy cases",
+    "submissionInfo": {
+      "submittedBy": "Kyle Dunn",
+      "submitterEmail": "kyle.dunn@cancercelldx.com",
+      "submitterType": "vendor",
+      "submittedDate": "2026-01-07",
+      "vendorVerifiedDate": "2026-01-07",
+      "vendorVerifiedBy": "Kyle Dunn"
+    }
+  },
+  {
+    "id": "tds-27",
+    "sampleCategory": "Tissue",
+    "name": "CancerVision",
+    "vendor": "Inocras",
+    "category": "TDS",
+    "dateAdded": "Jan 7, 2026",
+    "approach": "Target-enhanced whole genome sequencing",
+    "method": "Tumor-normal paired WGS with target enhancement: ~40x WGS backbone plus ~500x depth for 500 key biomarker genes; AI-driven bioinformatics for variant interpretation",
+    "methodCitations": "https://inocras.com/cancer-provider/ | https://www.clinicaltrialsarena.com/news/inocras-cancervision-genome-sequencing-test-deemed-effective/",
+    "genesAnalyzed": 20000,
+    "genesAnalyzedNotes": "Whole genome sequencing with target enhancement for 500 key genes; analyzes entire exome plus non-coding regions",
+    "biomarkersReported": [
+      "SNVs",
+      "Indels",
+      "SVs",
+      "CNVs",
+      "TMB",
+      "MSI",
+      "HRD"
+    ],
+    "biomarkersReportedNotes": "Reports SNVs, indels, structural variants (including fusions), CNVs, TMB, MSI, and HRD; detects variants in non-coding regions missed by panel tests",
+    "cancerTypes": [
+      "Pan-solid tumor"
+    ],
+    "cancerTypesNotes": "For patients with solid tumors at any stage - newly diagnosed, recurring, metastatic, or not responding to treatment",
+    "sensitivity": 100,
+    "sensitivityNotes": "100% concordance with Illumina TSO500 in 498 variants from 49 patients",
+    "sensitivityCitations": "https://www.clinicaltrialsarena.com/news/inocras-cancervision-genome-sequencing-test-deemed-effective/",
+    "specificity": 99,
+    "specificityNotes": "High specificity via tumor-normal paired analysis which reduces false positives from germline variants",
+    "specificityCitations": "https://inocras.com/cancer-provider/",
+    "fdaStatus": "CLIA LDT",
+    "fdaStatusNotes": "CAP/CLIA-certified laboratory-developed test",
+    "reimbursement": "Self-pay; coverage varies",
+    "reimbursementNote": "Not yet covered by US health insurance; international coverage varies by country/insurer",
+    "clinicalAvailability": "Commercially available in US and internationally",
+    "clinicalAvailabilityNotes": "Available via provider order portal; partnership with ChiMei Medical Center (Taiwan) for international expansion",
+    "tat": "14 days",
+    "tatNotes": "~2 weeks from receipt of tissue and blood samples",
+    "sampleType": "Tumor tissue + blood (matched normal)",
+    "sampleRequirements": "FFPE tumor tissue plus blood sample for germline comparison",
+    "cfDNAOption": true,
+    "cfDNAOptionNotes": "Liquid biopsy option available when tissue sample fails",
+    "numPublications": 5,
+    "numPublicationsPlus": true,
+    "numPublicationsNotes": "Clinical validation study (100% TSO500 concordance); multiple publications on WGS cancer profiling",
+    "numPublicationsCitations": "https://www.clinicaltrialsarena.com/news/inocras-cancervision-genome-sequencing-test-deemed-effective/",
+    "totalParticipants": 500,
+    "totalParticipantsPlus": true,
+    "validationCohortSize": 49,
+    "validationCohortStudy": "49-patient validation study showing 100% concordance (498 variants) with TSO500",
+    "isRUO": false,
+    "isInvestigational": false,
+    "isClinicalLDT": true,
+    "regulatoryStatusNotes": "CAP/CLIA-certified LDT; serves as foundation for MRDVision tumor-informed MRD testing",
+    "vendorVerified": true,
+    "clinicalTrialMatching": true,
+    "clinicalTrialMatchingNotes": "Includes clinical trial matching support based on biomarker findings",
+    "geneticCounseling": true,
+    "geneticCounselingNotes": "Includes access to genetic counselor session at no extra cost",
+    "technologyDifferentiator": "WGS approach finds complex mutations (SVs, CNVs, non-coding variants) missed by panel tests; paired tumor-normal reduces germline false positives; ~90% clinical utility rate; serves as foundation for MRDVision tumor-informed MRD monitoring",
+    "submissionInfo": {
+      "submittedBy": "Sandra Balladares",
+      "submitterEmail": "sballadares@inocras.com",
+      "submitterType": "vendor",
+      "submittedDate": "2026-01-05",
+      "vendorVerifiedDate": "2026-01-05",
+      "vendorVerifiedBy": "Sandra Balladares"
+    }
   }
 ]
