@@ -122,26 +122,26 @@ class DetailCompareToolsTest {
     }
 
     // ========================================
-    // GET TRM TESTS
+    // GET HCT TESTS
     // ========================================
 
     @Test
-    void testGetTrm_ById() {
-        String result = client.getTrm("trm-1", null);
+    void testGetHct_ById() {
+        String result = client.getHct("hct-1", null);
 
         assertThat(result).isNotNull();
         assertThat(result).startsWith("{");
-        assertThat(result).contains("\"id\": \"trm-1\"");
-        System.out.println("getTrm by id: success");
+        assertThat(result).contains("\"id\": \"hct-1\"");
+        System.out.println("getHct by id: success");
     }
 
     @Test
-    void testGetTrm_NotFound() {
-        String result = client.getTrm("trm-nonexistent", null);
+    void testGetHct_NotFound() {
+        String result = client.getHct("hct-nonexistent", null);
 
         assertThat(result).contains("\"error\": true");
         assertThat(result).contains("\"code\": \"NOT_FOUND\"");
-        System.out.println("getTrm not found: error response correct");
+        System.out.println("getHct not found: error response correct");
     }
 
     // ========================================
@@ -280,28 +280,28 @@ class DetailCompareToolsTest {
     }
 
     // ========================================
-    // COMPARE TRM TESTS
+    // COMPARE HCT TESTS
     // ========================================
 
     @Test
-    void testCompareTrm_ByIds() {
-        String result = client.compareTrm("trm-1,trm-2", null, null);
+    void testCompareHct_ByIds() {
+        String result = client.compareHct("hct-1,hct-2", null, null);
 
         assertThat(result).isNotNull();
         assertThat(result).startsWith("[");
-        // Default TRM metrics should include approach
-        assertThat(result).contains("\"approach\":");
-        System.out.println("compareTrm by ids: success");
+        // Default HCT metrics should include genesAnalyzed
+        assertThat(result).contains("\"genesAnalyzed\":");
+        System.out.println("compareHct by ids: success");
     }
 
     @Test
-    void testCompareTrm_WithCustomMetrics() {
-        String result = client.compareTrm("trm-1,trm-2", null, "name,vendor,sensitivity");
+    void testCompareHct_WithCustomMetrics() {
+        String result = client.compareHct("hct-1,hct-2", null, "name,vendor,cancerTypes");
 
         assertThat(result).isNotNull();
         assertThat(result).contains("\"name\":");
-        assertThat(result).doesNotContain("\"approach\":");
-        System.out.println("compareTrm with custom metrics: correct");
+        assertThat(result).contains("\"cancerTypes\":");
+        System.out.println("compareHct with custom metrics: correct");
     }
 
     // ========================================

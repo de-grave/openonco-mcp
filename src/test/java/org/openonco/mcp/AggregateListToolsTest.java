@@ -132,38 +132,37 @@ class AggregateListToolsTest {
     }
 
     // ========================================
-    // COUNT TRM TESTS
+    // COUNT HCT TESTS
     // ========================================
 
     @Test
-    void testCountTrm_ExcludesDiscontinuedByDefault() {
-        String resultDefault = client.countTrm(null, null, null, null);
-        String resultWithDiscontinued = client.countTrm(null, null, null, true);
+    void testCountHct_TotalOnly() {
+        String result = client.countHct(null, null, null);
 
-        int defaultCount = extractTotal(resultDefault);
-        int withDiscontinuedCount = extractTotal(resultWithDiscontinued);
+        assertThat(result).isNotNull();
+        assertThat(result).contains("\"total\":");
 
-        // Including discontinued should have >= default
-        assertThat(withDiscontinuedCount).isGreaterThanOrEqualTo(defaultCount);
-        System.out.println("countTrm: default=" + defaultCount + ", with discontinued=" + withDiscontinuedCount);
+        int total = extractTotal(result);
+        assertThat(total).isGreaterThan(0);
+        System.out.println("countHct total: " + total);
     }
 
     @Test
-    void testCountTrm_GroupByVendor() {
-        String result = client.countTrm("vendor", null, null, null);
+    void testCountHct_GroupByVendor() {
+        String result = client.countHct("vendor", null, null);
 
         assertThat(result).isNotNull();
         assertThat(result).contains("\"by_vendor\":");
-        System.out.println("countTrm by vendor: " + result);
+        System.out.println("countHct by vendor: " + result);
     }
 
     @Test
-    void testCountTrm_GroupByIsDiscontinued() {
-        String result = client.countTrm("isDiscontinued", null, null, true);
+    void testCountHct_GroupByFdaStatus() {
+        String result = client.countHct("fdaStatus", null, null);
 
         assertThat(result).isNotNull();
-        assertThat(result).contains("\"by_isDiscontinued\":");
-        System.out.println("countTrm by isDiscontinued: " + result);
+        assertThat(result).contains("\"by_fdaStatus\":");
+        System.out.println("countHct by fdaStatus: " + result);
     }
 
     // ========================================
@@ -242,6 +241,18 @@ class AggregateListToolsTest {
     }
 
     @Test
+    void testListVendors_HctOnly() {
+        String result = client.listVendors("hct");
+
+        assertThat(result).isNotNull();
+        assertThat(result).startsWith("[");
+
+        int count = countArrayElements(result);
+        assertThat(count).isGreaterThan(0);
+        System.out.println("listVendors (hct): " + count + " vendors");
+    }
+
+    @Test
     void testListVendors_CaseInsensitive() {
         String resultLower = client.listVendors("mrd");
         String resultUpper = client.listVendors("MRD");
@@ -256,7 +267,7 @@ class AggregateListToolsTest {
 
         assertThat(result).contains("\"error\": true");
         assertThat(result).contains("\"code\": \"INVALID_PARAMETER\"");
-        assertThat(result).contains("Valid categories: mrd, ecd, trm, tds");
+        assertThat(result).contains("Valid categories: mrd, ecd, hct, tds");
         System.out.println("listVendors invalid category: error response correct");
     }
 
@@ -301,6 +312,18 @@ class AggregateListToolsTest {
     }
 
     @Test
+    void testListCancerTypes_HctOnly() {
+        String result = client.listCancerTypes("hct");
+
+        assertThat(result).isNotNull();
+        assertThat(result).startsWith("[");
+
+        int count = countArrayElements(result);
+        assertThat(count).isGreaterThan(0);
+        System.out.println("listCancerTypes (hct): " + count + " cancer types");
+    }
+
+    @Test
     void testListCancerTypes_InvalidCategory() {
         String result = client.listCancerTypes("xyz");
 
@@ -324,7 +347,7 @@ class AggregateListToolsTest {
         // Should have all four categories
         assertThat(result).contains("\"id\": \"mrd\"");
         assertThat(result).contains("\"id\": \"ecd\"");
-        assertThat(result).contains("\"id\": \"trm\"");
+        assertThat(result).contains("\"id\": \"hct\"");
         assertThat(result).contains("\"id\": \"tds\"");
 
         System.out.println("listCategories: contains all 4 categories");
@@ -374,6 +397,17 @@ class AggregateListToolsTest {
         assertThat(result).contains("ctDNA");
 
         System.out.println("listCategories: MRD metadata correct");
+    }
+
+    @Test
+    void testListCategories_HctMetadataCorrect() {
+        String result = client.listCategories();
+
+        // HCT category should have correct metadata
+        assertThat(result).contains("\"id\": \"hct\"");
+        assertThat(result).contains("Hereditary Cancer Testing");
+
+        System.out.println("listCategories: HCT metadata correct");
     }
 
     // ========================================

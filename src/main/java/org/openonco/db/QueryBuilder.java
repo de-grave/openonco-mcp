@@ -298,7 +298,7 @@ public final class QueryBuilder {
         // Handle special meta-filters first (these don't map directly to field names)
         switch (field) {
             case "exclude_discontinued" -> {
-                // For TRM: exclude discontinued tests by default
+                // For categories with discontinued tests: exclude by default
                 if (Boolean.TRUE.equals(value)) {
                     // No params needed - this is a literal condition
                     return "(isDiscontinued = false OR isDiscontinued IS NULL)";
@@ -365,7 +365,7 @@ public final class QueryBuilder {
      * Only allows known table names.
      */
     private static void validateTableName(String table) {
-        Set<String> validTables = Set.of("mrd_tests", "ecd_tests", "trm_tests", "tds_tests");
+        Set<String> validTables = Set.of("mrd_tests", "ecd_tests", "hct_tests", "tds_tests");
         if (!validTables.contains(table)) {
             throw new IllegalArgumentException("Invalid table name: " + table);
         }

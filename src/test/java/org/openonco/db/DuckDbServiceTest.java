@@ -57,10 +57,10 @@ class DuckDbServiceTest {
     }
 
     @Test
-    void testTrmTableLoaded() {
-        int count = service.getTableRowCount("trm_tests");
+    void testHctTableLoaded() {
+        int count = service.getTableRowCount("hct_tests");
         assertThat(count).isGreaterThan(0);
-        System.out.println("TRM tests count: " + count);
+        System.out.println("HCT tests count: " + count);
     }
 
     @Test
@@ -185,7 +185,7 @@ class DuckDbServiceTest {
     @Test
     void testRequiredFieldsNotNull() {
         // Verify no records have null required fields (validation should have caught this at startup)
-        for (String table : List.of("mrd_tests", "ecd_tests", "trm_tests", "tds_tests")) {
+        for (String table : List.of("mrd_tests", "ecd_tests", "hct_tests", "tds_tests")) {
             int nullCount = service.executeCount(
                     "SELECT COUNT(*) FROM " + table + " WHERE id IS NULL OR name IS NULL OR vendor IS NULL"
             );
@@ -200,19 +200,19 @@ class DuckDbServiceTest {
         // Summary test to verify all tables loaded
         int mrdCount = service.getTableRowCount("mrd_tests");
         int ecdCount = service.getTableRowCount("ecd_tests");
-        int trmCount = service.getTableRowCount("trm_tests");
+        int hctCount = service.getTableRowCount("hct_tests");
         int tdsCount = service.getTableRowCount("tds_tests");
 
         System.out.println("=== OpenOnco Database Summary ===");
         System.out.println("MRD tests: " + mrdCount);
         System.out.println("ECD tests: " + ecdCount);
-        System.out.println("TRM tests: " + trmCount);
+        System.out.println("HCT tests: " + hctCount);
         System.out.println("TDS tests: " + tdsCount);
-        System.out.println("Total: " + (mrdCount + ecdCount + trmCount + tdsCount));
+        System.out.println("Total: " + (mrdCount + ecdCount + hctCount + tdsCount));
 
         assertThat(mrdCount).as("MRD table").isGreaterThan(0);
         assertThat(ecdCount).as("ECD table").isGreaterThan(0);
-        assertThat(trmCount).as("TRM table").isGreaterThan(0);
+        assertThat(hctCount).as("HCT table").isGreaterThan(0);
         assertThat(tdsCount).as("TDS table").isGreaterThan(0);
     }
 }

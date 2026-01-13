@@ -52,9 +52,9 @@ public class OpenOncoClient {
             "stageISensitivity", "ppv", "npv", "listPrice", "fdaStatus"
     );
 
-    private static final List<String> DEFAULT_TRM_METRICS = List.of(
-            "name", "vendor", "approach", "sensitivity", "leadTimeVsImaging",
-            "lod", "fdaStatus", "reimbursement"
+    private static final List<String> DEFAULT_HCT_METRICS = List.of(
+            "name", "vendor", "genesAnalyzed", "cancerTypes", "sampleCategory",
+            "tat", "listPrice", "fdaStatus"
     );
 
     private static final List<String> DEFAULT_TDS_METRICS = List.of(
@@ -69,8 +69,8 @@ public class OpenOncoClient {
     private static final Set<String> VALID_ECD_GROUP_BY = Set.of(
             "vendor", "testScope", "fdaStatus", "reimbursement"
     );
-    private static final Set<String> VALID_TRM_GROUP_BY = Set.of(
-            "vendor", "approach", "fdaStatus", "reimbursement", "isDiscontinued"
+    private static final Set<String> VALID_HCT_GROUP_BY = Set.of(
+            "vendor", "fdaStatus", "reimbursement", "sampleCategory"
     );
     private static final Set<String> VALID_TDS_GROUP_BY = Set.of(
             "vendor", "productType", "fdaStatus", "approach", "reimbursement"
@@ -80,7 +80,7 @@ public class OpenOncoClient {
     private static final Map<String, String> CATEGORY_TABLES = Map.of(
             "mrd", "mrd_tests",
             "ecd", "ecd_tests",
-            "trm", "trm_tests",
+            "hct", "hct_tests",
             "tds", "tds_tests"
     );
 
@@ -90,8 +90,8 @@ public class OpenOncoClient {
                     "Detect residual cancer after treatment via circulating tumor DNA (ctDNA)"),
             new CategoryInfo("ecd", "Early Cancer Detection", "ECD Testing",
                     "Screen for cancer in asymptomatic individuals"),
-            new CategoryInfo("trm", "Treatment Response Monitoring", "TRM Testing",
-                    "Track treatment effectiveness via ctDNA changes over time"),
+            new CategoryInfo("hct", "Hereditary Cancer Testing", "HCT Testing",
+                    "Identify inherited genetic mutations that increase cancer risk"),
             new CategoryInfo("tds", "Treatment Decision Support", "TDS Testing",
                     "Guide treatment decisions via comprehensive genomic profiling")
     );
@@ -188,24 +188,22 @@ public class OpenOncoClient {
     }
 
     /**
-     * Search TRM (Treatment Response Monitoring) tests with optional filters.
+     * Search HCT (Hereditary Cancer Testing) tests with optional filters.
      *
-     * @param vendor              Filter by vendor name (partial match)
-     * @param cancerType          Filter by cancer type (in cancerTypes array)
-     * @param approach            Filter by approach
-     * @param fdaStatus           Filter by FDA status (partial match)
-     * @param includeDiscontinued Include discontinued tests (default: false)
-     * @param fields              Comma-separated list of fields to return
-     * @param limit               Maximum records to return
-     * @param offset              Records to skip for pagination
-     * @return JSON array of matching TRM tests
+     * @param vendor    Filter by vendor name (partial match)
+     * @param cancerType Filter by cancer type/syndrome (in cancerTypes array)
+     * @param fdaStatus Filter by FDA status (partial match)
+     * @param minGenes  Minimum number of genes analyzed
+     * @param fields    Comma-separated list of fields to return
+     * @param limit     Maximum records to return
+     * @param offset    Records to skip for pagination
+     * @return JSON array of matching HCT tests
      */
-    public String searchTrm(
+    public String searchHct(
             String vendor,
             String cancerType,
-            String approach,
             String fdaStatus,
-            Boolean includeDiscontinued,
+            Integer minGenes,
             String fields,
             Integer limit,
             Integer offset) {
@@ -214,16 +212,11 @@ public class OpenOncoClient {
 
         if (vendor != null) filters.put("vendor", vendor);
         if (cancerType != null) filters.put("cancerTypes", cancerType);
-        if (approach != null) filters.put("approach", approach);
         if (fdaStatus != null) filters.put("fdaStatus", fdaStatus);
-
-        // Exclude discontinued by default (when null or false)
-        if (includeDiscontinued == null || !includeDiscontinued) {
-            filters.put("exclude_discontinued", true);
-        }
+        if (minGenes != null) filters.put("min_genesAnalyzed", minGenes);
 
         QueryResult query = QueryBuilder.buildSearchQuery(
-                "trm_tests", filters, parseFields(fields), limit, offset);
+                "hct_tests", filters, parseFields(fields), limit, offset);
 
         return executeAndFormat(query);
     }
@@ -301,14 +294,14 @@ public class OpenOncoClient {
     }
 
     /**
-     * Get complete details of a single TRM test by ID or name.
+     * Get complete details of a single HCT test by ID or name.
      *
-     * @param id   Test ID (e.g., "trm-1")
+     * @param id   Test ID (e.g., "hct-1")
      * @param name Test name
      * @return JSON object with all fields, or error response
      */
-    public String getTrm(String id, String name) {
-        return getTest("trm_tests", "TRM", id, name, "openonco_search_trm");
+    public String getHct(String id, String name) {
+        return getTest("hct_tests", "HCT", id, name, "openonco_search_hct");
     }
 
     /**
@@ -395,15 +388,15 @@ public class OpenOncoClient {
     }
 
     /**
-     * Compare multiple TRM tests side-by-side on specified metrics.
+     * Compare multiple HCT tests side-by-side on specified metrics.
      *
      * @param ids     Comma-separated test IDs
      * @param names   Comma-separated test names
      * @param metrics Comma-separated metrics to compare (null for defaults)
      * @return JSON array with each test showing comparison metrics
      */
-    public String compareTrm(String ids, String names, String metrics) {
-        return compareTests("trm_tests", "TRM", ids, names, metrics, DEFAULT_TRM_METRICS);
+    public String compareHct(String ids, String names, String metrics) {
+        return compareTests("hct_tests", "HCT", ids, names, metrics, DEFAULT_HCT_METRICS);
     }
 
     /**
@@ -665,26 +658,19 @@ public class OpenOncoClient {
     }
 
     /**
-     * Count TRM tests with optional grouping and filtering.
+     * Count HCT tests with optional grouping and filtering.
      *
-     * @param groupBy             Field to group by (null for total count only)
-     * @param filterVendor        Filter by vendor before counting
-     * @param filterApproach      Filter by approach before counting
-     * @param includeDiscontinued Include discontinued tests (default: false)
+     * @param groupBy         Field to group by (null for total count only)
+     * @param filterVendor    Filter by vendor before counting
+     * @param filterFdaStatus Filter by FDA status before counting
      * @return JSON with total count and optional grouped counts
      */
-    public String countTrm(String groupBy, String filterVendor, String filterApproach,
-                           Boolean includeDiscontinued) {
+    public String countHct(String groupBy, String filterVendor, String filterFdaStatus) {
         Map<String, Object> filters = new LinkedHashMap<>();
         if (filterVendor != null) filters.put("vendor", filterVendor);
-        if (filterApproach != null) filters.put("approach", filterApproach);
+        if (filterFdaStatus != null) filters.put("fdaStatus", filterFdaStatus);
 
-        // Exclude discontinued by default
-        if (includeDiscontinued == null || !includeDiscontinued) {
-            filters.put("exclude_discontinued", true);
-        }
-
-        return countTests("trm_tests", "TRM", groupBy, filters, VALID_TRM_GROUP_BY);
+        return countTests("hct_tests", "HCT", groupBy, filters, VALID_HCT_GROUP_BY);
     }
 
     /**
@@ -777,7 +763,7 @@ public class OpenOncoClient {
     /**
      * List all vendors across all categories or for a specific category.
      *
-     * @param category Filter by category ("mrd", "ecd", "trm", "tds") or null for all
+     * @param category Filter by category ("mrd", "ecd", "hct", "tds") or null for all
      * @return JSON array of distinct vendor names, sorted alphabetically
      */
     public String listVendors(String category) {
@@ -787,7 +773,7 @@ public class OpenOncoClient {
     /**
      * List all cancer types across all categories or for a specific category.
      *
-     * @param category Filter by category ("mrd", "ecd", "trm", "tds") or null for all
+     * @param category Filter by category ("mrd", "ecd", "hct", "tds") or null for all
      * @return JSON array of distinct cancer types, sorted alphabetically
      */
     public String listCancerTypes(String category) {
@@ -809,7 +795,7 @@ public class OpenOncoClient {
             if (!CATEGORY_TABLES.containsKey(normalizedCategory)) {
                 return errorResponse("INVALID_PARAMETER",
                         "Invalid category '" + category + "'",
-                        "Valid categories: mrd, ecd, trm, tds");
+                        "Valid categories: mrd, ecd, hct, tds");
             }
         }
 

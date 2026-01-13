@@ -216,53 +216,59 @@ class SearchToolsTest {
     }
 
     // ========================================
-    // TRM SEARCH TESTS
+    // HCT SEARCH TESTS
     // ========================================
 
     @Test
-    void testSearchTrm_NoFilters_ExcludesDiscontinued() {
-        // By default, discontinued tests should be excluded
-        String result = client.searchTrm(null, null, null, null, null, null, null, null);
+    void testSearchHct_NoFilters() {
+        String result = client.searchHct(null, null, null, null, null, null, null);
 
         assertThat(result).isNotNull();
-        // Should not contain isDiscontinued: true
-        assertThat(result).doesNotContain("\"isDiscontinued\": true");
-        System.out.println("TRM search (default, excludes discontinued): " + countResults(result) + " results");
+        assertThat(result).startsWith("[");
+        System.out.println("HCT search (no filters): " + countResults(result) + " results");
     }
 
     @Test
-    void testSearchTrm_IncludeDiscontinued() {
-        String resultWithout = client.searchTrm(null, null, null, null, false, null, null, null);
-        String resultWith = client.searchTrm(null, null, null, null, true, null, null, null);
-
-        assertThat(resultWithout).isNotNull();
-        assertThat(resultWith).isNotNull();
-
-        int countWithout = countResults(resultWithout);
-        int countWith = countResults(resultWith);
-
-        // Including discontinued should have >= results than excluding
-        assertThat(countWith).isGreaterThanOrEqualTo(countWithout);
-        System.out.println("TRM search: without discontinued=" + countWithout + ", with discontinued=" + countWith);
-    }
-
-    @Test
-    void testSearchTrm_ByVendor() {
-        String result = client.searchTrm("Guardant", null, null, null, null, null, null, null);
+    void testSearchHct_ByVendor() {
+        String result = client.searchHct("Myriad", null, null, null, null, null, null);
 
         assertThat(result).isNotNull();
         if (!result.equals("[]")) {
-            assertThat(result.toLowerCase()).contains("guardant");
+            assertThat(result.toLowerCase()).contains("myriad");
         }
-        System.out.println("TRM search (vendor=Guardant): " + countResults(result) + " results");
+        System.out.println("HCT search (vendor=Myriad): " + countResults(result) + " results");
     }
 
     @Test
-    void testSearchTrm_ByApproach() {
-        String result = client.searchTrm(null, null, "Tumor-informed", null, null, null, null, null);
+    void testSearchHct_ByCancerType() {
+        String result = client.searchHct(null, "Breast", null, null, null, null, null);
 
         assertThat(result).isNotNull();
-        System.out.println("TRM search (approach=Tumor-informed): " + countResults(result) + " results");
+        if (!result.equals("[]")) {
+            assertThat(result.toLowerCase()).contains("breast");
+        }
+        System.out.println("HCT search (cancer_type=Breast): " + countResults(result) + " results");
+    }
+
+    @Test
+    void testSearchHct_ByMinGenes() {
+        String result = client.searchHct(null, null, null, 30, null, null, null);
+
+        assertThat(result).isNotNull();
+        System.out.println("HCT search (min_genes=30): " + countResults(result) + " results");
+    }
+
+    @Test
+    void testSearchHct_WithSpecificFields() {
+        String result = client.searchHct(null, null, null, null, "id,name,vendor,genesAnalyzed", 10, null);
+
+        assertThat(result).isNotNull();
+        if (!result.equals("[]")) {
+            assertThat(result).contains("\"id\":");
+            assertThat(result).contains("\"name\":");
+            assertThat(result).contains("\"vendor\":");
+        }
+        System.out.println("HCT search (with fields): " + countResults(result) + " results");
     }
 
     // ========================================
