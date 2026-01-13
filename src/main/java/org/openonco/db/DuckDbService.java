@@ -63,8 +63,8 @@ public class DuckDbService {
     private static final Map<String, String> TABLE_RESOURCES = Map.of(
             "mrd_tests", "/mrd.json",
             "ecd_tests", "/ecd.json",
-            "trm_tests", "/trm.json",
-            "tds_tests", "/tds.json"
+            "tds_tests", "/tds.json",
+            "hct_tests", "/hct.json"
     );
 
     private Connection connection;
