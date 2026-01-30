@@ -350,6 +350,75 @@ public class OpenOncoMCPServer {
     }
 
     // ========================================
+    // PAP (Patient Assistance Programs) TOOLS
+    // ========================================
+
+    @Tool(description = """
+            Search vendor patient assistance programs.
+
+            Returns eligibility rules, FPL thresholds, contact info, and application URLs.
+            Use when users ask about financial assistance, copay programs, or help paying for tests.
+
+            Tip: Use openonco_get_pap with a program ID or vendor name for full details
+            including required documentation and processing time.
+
+            Returns JSON array of matching programs. Empty array [] if no matches.
+            Default: 20 results. Use 'fields' to limit response size.
+            """)
+    public String openonco_search_pap(
+            @ToolArg(description = "Filter by vendor name (partial match, case-insensitive). " +
+                    "Examples: 'Natera', 'Guardant', 'Foundation'",
+                    required = false)
+            String vendor,
+
+            @ToolArg(description = "Filter by Medicare eligibility. " +
+                    "true = Medicare patients eligible, false = Medicare patients not eligible",
+                    required = false)
+            Boolean medicare,
+
+            @ToolArg(description = "Filter by Medicaid eligibility. " +
+                    "true = Medicaid patients eligible, false = Medicaid patients not eligible",
+                    required = false)
+            Boolean medicaid,
+
+            @ToolArg(description = "Comma-separated list of fields to return. " +
+                    "Example: 'id,vendorName,programName,phone,applicationUrl'. " +
+                    "Returns all fields if not specified.",
+                    required = false)
+            String fields,
+
+            @ToolArg(description = "Maximum number of records to return (default: 20, max: 500)",
+                    required = false)
+            Integer limit
+    ) {
+        return safeExecute("openonco_search_pap", () ->
+                client.searchPap(vendor, medicare, medicaid, fields, limit, null));
+    }
+
+    @Tool(description = """
+            Get complete PAP details for a specific vendor.
+
+            Retrieves ALL fields for one program including eligibility rules, FPL thresholds,
+            required documentation, processing time, and contact information.
+            Use this after openonco_search_pap to get full details of a specific program.
+
+            Provide either 'id' (e.g., 'pap-1') or 'name' (vendor name like 'Natera').
+            Returns JSON object with all fields, or error with NOT_FOUND if program doesn't exist.
+            """)
+    public String openonco_get_pap(
+            @ToolArg(description = "Program ID (e.g., 'pap-1'). Takes precedence if both id and name provided.",
+                    required = false)
+            String id,
+
+            @ToolArg(description = "Vendor name (exact match, case-insensitive). " +
+                    "Example: 'Natera'",
+                    required = false)
+            String name
+    ) {
+        return safeExecute("openonco_get_pap", () -> client.getPap(id, name));
+    }
+
+    // ========================================
     // GET TOOLS (Detail)
     // ========================================
 

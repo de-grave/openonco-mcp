@@ -268,6 +268,97 @@ public class OpenOncoClient {
     }
 
     // ========================================
+    // PAP (Patient Assistance Programs) TOOLS
+    // ========================================
+
+    /**
+     * Search PAP (Patient Assistance Programs) with optional filters.
+     *
+     * @param vendor   Filter by vendor name (partial match)
+     * @param medicare Filter by Medicare eligibility
+     * @param medicaid Filter by Medicaid eligibility
+     * @param fields   Comma-separated list of fields to return
+     * @param limit    Maximum records to return
+     * @param offset   Records to skip for pagination
+     * @return JSON array of matching PAP programs
+     */
+    public String searchPap(
+            String vendor,
+            Boolean medicare,
+            Boolean medicaid,
+            String fields,
+            Integer limit,
+            Integer offset) {
+
+        Map<String, Object> filters = new LinkedHashMap<>();
+
+        if (vendor != null) filters.put("vendorName", vendor);
+        if (medicare != null) filters.put("medicareEligible", medicare);
+        if (medicaid != null) filters.put("medicaidEligible", medicaid);
+
+        QueryResult query = QueryBuilder.buildSearchQuery(
+                "pap_programs", filters, parseFields(fields), limit, offset);
+
+        return executeAndFormat(query);
+    }
+
+    /**
+     * Get complete details of a single PAP program by ID or vendor name.
+     *
+     * @param id   Program ID (e.g., "pap-1")
+     * @param name Vendor name (exact match, case-insensitive)
+     * @return JSON object with all fields, or error response
+     */
+    public String getPap(String id, String name) {
+        return getPapProgram("pap_programs", "PAP", id, name, "openonco_search_pap");
+    }
+
+    /**
+     * Get PAP program implementation - uses vendorName instead of name field.
+     */
+    private String getPapProgram(String table, String category, String id, String name, String searchTool) {
+        // Validate: at least one must be provided
+        boolean hasId = id != null && !id.isBlank();
+        boolean hasName = name != null && !name.isBlank();
+
+        if (!hasId && !hasName) {
+            return errorResponse("MISSING_PARAMETER",
+                    "Either 'id' or 'name' must be provided",
+                    "Use " + searchTool + " to find available programs");
+        }
+
+        // Build query - prefer id if both provided
+        QueryResult query;
+        String lookupType;
+        String lookupValue;
+
+        if (hasId) {
+            query = QueryBuilder.buildGetByIdQuery(table, id.trim());
+            lookupType = "id";
+            lookupValue = id.trim();
+        } else {
+            // PAP uses vendorName instead of name
+            query = QueryBuilder.buildGetByVendorNameQuery(table, name.trim());
+            lookupType = "name";
+            lookupValue = name.trim();
+        }
+
+        Log.debugf("Get %s program: %s", category, query.sql());
+
+        List<Map<String, Object>> results = dbService.executeQuery(query);
+
+        // Handle not found
+        if (results.isEmpty()) {
+            return errorResponse("NOT_FOUND",
+                    "No " + category + " program found with " + lookupType + " '" + lookupValue + "'",
+                    "Use " + searchTool + " to find available programs");
+        }
+
+        // Return single object (not array)
+        return formatAsJsonObject(results.get(0));
+    }
+
+    // ========================================
     // GET TOOLS (Detail)
     // ========================================
 

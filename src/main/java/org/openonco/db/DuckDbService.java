@@ -59,12 +59,14 @@ import java.util.Map;
 public class DuckDbService {
 
     private static final String[] REQUIRED_FIELDS = {"id", "name", "vendor"};
+    private static final String[] REQUIRED_FIELDS_PAP = {"id", "vendorName"};
 
     private static final Map<String, String> TABLE_RESOURCES = Map.of(
             "mrd_tests", "/mrd.json",
             "ecd_tests", "/ecd.json",
             "tds_tests", "/tds.json",
-            "hct_tests", "/hct.json"
+            "hct_tests", "/hct.json",
+            "pap_programs", "/pap.json"
     );
 
     private Connection connection;
@@ -290,13 +292,16 @@ public class DuckDbService {
             return;
         }
 
+        // PAP table has different required fields
+        String[] requiredFields = tableName.equals("pap_programs") ? REQUIRED_FIELDS_PAP : REQUIRED_FIELDS;
+
         // Build condition for null/empty required fields
         StringBuilder condition = new StringBuilder();
-        for (int i = 0; i < REQUIRED_FIELDS.length; i++) {
+        for (int i = 0; i < requiredFields.length; i++) {
             if (i > 0) {
                 condition.append(" OR ");
             }
-            condition.append(REQUIRED_FIELDS[i]).append(" IS NULL");
+            condition.append(requiredFields[i]).append(" IS NULL");
         }
 
         String sql = "SELECT COUNT(*) FROM " + tableName + " WHERE " + condition;
@@ -307,8 +312,9 @@ public class DuckDbService {
             if (rs.next() && rs.getInt(1) > 0) {
                 int invalidCount = rs.getInt(1);
 
-                // Get details about invalid records
-                String detailsSql = "SELECT id, name, vendor FROM " + tableName +
+                // Get details about invalid records - use appropriate fields for the table
+                String detailFields = tableName.equals("pap_programs") ? "id, vendorName" : "id, name, vendor";
+                String detailsSql = "SELECT " + detailFields + " FROM " + tableName +
                         " WHERE " + condition + " LIMIT 5";
 
                 try (PreparedStatement detailStmt = connection.prepareStatement(detailsSql);
@@ -316,16 +322,21 @@ public class DuckDbService {
 
                     StringBuilder details = new StringBuilder();
                     while (detailRs.next()) {
-                        details.append("\n  - id=").append(detailRs.getString("id"))
-                                .append(", name=").append(detailRs.getString("name"))
-                                .append(", vendor=").append(detailRs.getString("vendor"));
+                        details.append("\n  - id=").append(detailRs.getString("id"));
+                        if (tableName.equals("pap_programs")) {
+                            details.append(", vendorName=").append(detailRs.getString("vendorName"));
+                        } else {
+                            details.append(", name=").append(detailRs.getString("name"))
+                                    .append(", vendor=").append(detailRs.getString("vendor"));
+                        }
                     }
 
+                    String fieldList = tableName.equals("pap_programs") ? "id or vendorName" : "id, name, or vendor";
                     throw new OpenOncoException(
                             OpenOncoException.ErrorCode.DATA_VALIDATION_ERROR,
                             String.format(
-                                    "Table %s has %d record(s) with missing required fields (id, name, or vendor).%s",
-                                    tableName, invalidCount, details
+                                    "Table %s has %d record(s) with missing required fields (%s).%s",
+                                    tableName, invalidCount, fieldList, details
                             ),
                             "Check the source JSON file for incomplete records"
                     );
