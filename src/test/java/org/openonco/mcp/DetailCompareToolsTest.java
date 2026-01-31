@@ -296,11 +296,11 @@ class DetailCompareToolsTest {
 
     @Test
     void testCompareHct_WithCustomMetrics() {
-        String result = client.compareHct("hct-1,hct-2", null, "name,vendor,cancerTypes");
+        String result = client.compareHct("hct-1,hct-2", null, "name,vendor,cancerTypesAssessed");
 
         assertThat(result).isNotNull();
         assertThat(result).contains("\"name\":");
-        assertThat(result).contains("\"cancerTypes\":");
+        assertThat(result).contains("\"cancerTypesAssessed\":");
         System.out.println("compareHct with custom metrics: correct");
     }
 

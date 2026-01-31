@@ -19,11 +19,16 @@ package org.openonco.mcp;
 
 import io.quarkiverse.mcp.server.Tool;
 import io.quarkiverse.mcp.server.ToolArg;
+import io.quarkiverse.mcp.server.ToolResponse;
+import io.quarkiverse.mcp.server.TextContent;
 import io.quarkus.logging.Log;
 import io.quarkus.runtime.Startup;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import org.openonco.client.OpenOncoClient;
+import org.openonco.mcp.util.McpResponse;
+
+import java.util.List;
 
 /**
  * MCP Server exposing OpenOnco oncology diagnostic test data tools.
@@ -50,40 +55,32 @@ public class OpenOncoMCPServer {
     }
 
     /**
-     * Wraps a tool call with exception handling, returning INTERNAL_ERROR for unexpected failures.
-     * Logs the full exception for debugging while returning a clean JSON error to clients.
+     * Wraps a tool call. Returns a proper ToolResponse on success.
+     * Throws ToolCallException on failure so Quarkus sets isError=true.
      */
-    private String safeExecute(String toolName, java.util.function.Supplier<String> operation) {
+    private ToolResponse safeExecute(String toolName, java.util.function.Supplier<String> operation) {
         try {
-            return operation.get();
+            String jsonResult = operation.get();
+            // Quarkus ToolResponse: (isError=false, contents, structuredContent, metadata)
+            return new ToolResponse(
+                false,
+                List.of(new TextContent(jsonResult)),
+                null,
+                null
+            );
         } catch (Exception e) {
-            Log.errorf(e, "Unexpected error in %s: %s", toolName, e.getMessage());
-            return "{\"error\": true, \"code\": \"INTERNAL_ERROR\", " +
-                   "\"message\": \"An unexpected error occurred. Please try again or contact support.\", " +
-                   "\"detail\": \"" + escapeJson(e.getMessage()) + "\"}";
+            Log.errorf("Error in %s: %s", toolName, e.getMessage());
+            throw McpResponse.error(e);
         }
-    }
-
-    /**
-     * Escape special characters in JSON strings.
-     */
-    private String escapeJson(String text) {
-        if (text == null) {
-            return "";
-        }
-        return text
-                .replace("\\", "\\\\")
-                .replace("\"", "\\\"")
-                .replace("\n", "\\n")
-                .replace("\r", "\\r")
-                .replace("\t", "\\t");
     }
 
     // ========================================
     // SEARCH TOOLS
     // ========================================
 
-    @Tool(description = """
+    @Tool(
+        title = "openonco_search_mrd",
+        description = """
             Search and filter MRD (Molecular Residual Disease) tests.
 
             MRD tests detect residual cancer after treatment via ctDNA in blood samples.
@@ -96,12 +93,13 @@ public class OpenOncoMCPServer {
             Returns JSON array of matching tests. Empty array [] if no matches.
             Default: 50 results, max: 500. Use 'fields' to limit response size.
             """,
-            annotations = @Tool.Annotations(
+        annotations = @Tool.Annotations(
+                    title = "openonco_search_mrd",
                     readOnlyHint = true,
                     destructiveHint = false,
                     idempotentHint = true,
                     openWorldHint = false))
-    public String openonco_search_mrd(
+    public ToolResponse openonco_search_mrd(
             @ToolArg(description = "Filter by vendor/company name (partial match, case-insensitive). " +
                     "Examples: 'Natera', 'Guardant', 'Foundation'",
                     required = false)
@@ -157,7 +155,9 @@ public class OpenOncoMCPServer {
                         fields, limit, offset));
     }
 
-    @Tool(description = """
+    @Tool(
+        title = "openonco_search_ecd",
+        description = """
             Search and filter ECD (Early Cancer Detection) tests.
 
             ECD tests screen for cancer in asymptomatic individuals before symptoms appear.
@@ -170,12 +170,13 @@ public class OpenOncoMCPServer {
             Returns JSON array of matching tests. Empty array [] if no matches.
             Default: 50 results, max: 500. Use 'fields' to limit response size.
             """,
-            annotations = @Tool.Annotations(
+        annotations = @Tool.Annotations(
+                    title = "openonco_search_ecd",
                     readOnlyHint = true,
                     destructiveHint = false,
                     idempotentHint = true,
                     openWorldHint = false))
-    public String openonco_search_ecd(
+    public ToolResponse openonco_search_ecd(
             @ToolArg(description = "Filter by vendor/company name (partial match, case-insensitive). " +
                     "Examples: 'GRAIL', 'Exact Sciences', 'Freenome'",
                     required = false)
@@ -231,7 +232,9 @@ public class OpenOncoMCPServer {
                         fields, limit, offset));
     }
 
-    @Tool(description = """
+    @Tool(
+        title = "openonco_search_hct",
+        description = """
             Search and filter HCT (Hereditary Cancer Testing) tests.
 
             HCT tests identify inherited genetic mutations that increase cancer risk,
@@ -245,12 +248,13 @@ public class OpenOncoMCPServer {
             Returns JSON array of matching tests. Empty array [] if no matches.
             Default: 50 results, max: 500. Use 'fields' to limit response size.
             """,
-            annotations = @Tool.Annotations(
+        annotations = @Tool.Annotations(
+                    title = "openonco_search_hct",
                     readOnlyHint = true,
                     destructiveHint = false,
                     idempotentHint = true,
                     openWorldHint = false))
-    public String openonco_search_hct(
+    public ToolResponse openonco_search_hct(
             @ToolArg(description = "Filter by vendor/company name (partial match, case-insensitive). " +
                     "Examples: 'Myriad', 'Invitae', 'Ambry'",
                     required = false)
@@ -290,7 +294,9 @@ public class OpenOncoMCPServer {
                         fields, limit, offset));
     }
 
-    @Tool(description = """
+    @Tool(
+        title = "openonco_search_tds",
+        description = """
             Search and filter TDS (Treatment Decision Support) tests.
 
             TDS tests guide treatment via comprehensive genomic profiling (CGP), identifying
@@ -303,12 +309,13 @@ public class OpenOncoMCPServer {
             Returns JSON array of matching tests. Empty array [] if no matches.
             Default: 50 results, max: 500. Use 'fields' to limit response size.
             """,
-            annotations = @Tool.Annotations(
+        annotations = @Tool.Annotations(
+                    title = "openonco_search_tds",
                     readOnlyHint = true,
                     destructiveHint = false,
                     idempotentHint = true,
                     openWorldHint = false))
-    public String openonco_search_tds(
+    public ToolResponse openonco_search_tds(
             @ToolArg(description = "Filter by vendor/company name (partial match, case-insensitive). " +
                     "Examples: 'Foundation', 'Tempus', 'Caris'",
                     required = false)
@@ -373,7 +380,9 @@ public class OpenOncoMCPServer {
     // PAP (Patient Assistance Programs) TOOLS
     // ========================================
 
-    @Tool(description = """
+    @Tool(
+        title = "openonco_search_pap",
+        description = """
             Search vendor patient assistance programs.
 
             Returns eligibility rules, FPL thresholds, contact info, and application URLs.
@@ -385,12 +394,13 @@ public class OpenOncoMCPServer {
             Returns JSON array of matching programs. Empty array [] if no matches.
             Default: 20 results. Use 'fields' to limit response size.
             """,
-            annotations = @Tool.Annotations(
+        annotations = @Tool.Annotations(
+                    title = "openonco_search_pap",
                     readOnlyHint = true,
                     destructiveHint = false,
                     idempotentHint = true,
                     openWorldHint = false))
-    public String openonco_search_pap(
+    public ToolResponse openonco_search_pap(
             @ToolArg(description = "Filter by vendor name (partial match, case-insensitive). " +
                     "Examples: 'Natera', 'Guardant', 'Foundation'",
                     required = false)
@@ -420,7 +430,9 @@ public class OpenOncoMCPServer {
                 client.searchPap(vendor, medicare, medicaid, fields, limit, null));
     }
 
-    @Tool(description = """
+    @Tool(
+        title = "openonco_get_pap",
+        description = """
             Get complete PAP details for a specific vendor.
 
             Retrieves ALL fields for one program including eligibility rules, FPL thresholds,
@@ -430,12 +442,13 @@ public class OpenOncoMCPServer {
             Provide either 'id' (e.g., 'pap-1') or 'name' (vendor name like 'Natera').
             Returns JSON object with all fields, or error with NOT_FOUND if program doesn't exist.
             """,
-            annotations = @Tool.Annotations(
+        annotations = @Tool.Annotations(
+                    title = "openonco_get_pap",
                     readOnlyHint = true,
                     destructiveHint = false,
                     idempotentHint = true,
                     openWorldHint = false))
-    public String openonco_get_pap(
+    public ToolResponse openonco_get_pap(
             @ToolArg(description = "Program ID (e.g., 'pap-1'). Takes precedence if both id and name provided.",
                     required = false)
             String id,
@@ -452,7 +465,9 @@ public class OpenOncoMCPServer {
     // GET TOOLS (Detail)
     // ========================================
 
-    @Tool(description = """
+    @Tool(
+        title = "openonco_get_mrd",
+        description = """
             Get complete details of a single MRD (Molecular Residual Disease) test.
 
             Retrieves ALL fields for one test, including sensitivity, specificity, LOD,
@@ -462,12 +477,13 @@ public class OpenOncoMCPServer {
             Provide either 'id' (e.g., 'mrd-1') or 'name' (e.g., 'Signatera').
             Returns JSON object with all fields, or error with NOT_FOUND if test doesn't exist.
             """,
-            annotations = @Tool.Annotations(
+        annotations = @Tool.Annotations(
+                    title = "openonco_get_mrd",
                     readOnlyHint = true,
                     destructiveHint = false,
                     idempotentHint = true,
                     openWorldHint = false))
-    public String openonco_get_mrd(
+    public ToolResponse openonco_get_mrd(
             @ToolArg(description = "Test ID (e.g., 'mrd-1'). Takes precedence if both id and name provided.",
                     required = false)
             String id,
@@ -480,7 +496,9 @@ public class OpenOncoMCPServer {
         return safeExecute("openonco_get_mrd", () -> client.getMrd(id, name));
     }
 
-    @Tool(description = """
+    @Tool(
+        title = "openonco_get_ecd",
+        description = """
             Get complete details of a single ECD (Early Cancer Detection) test.
 
             Retrieves ALL fields for one test, including stage-specific sensitivity,
@@ -490,12 +508,13 @@ public class OpenOncoMCPServer {
             Provide either 'id' (e.g., 'ecd-1') or 'name' (e.g., 'Galleri').
             Returns JSON object with all fields, or error with NOT_FOUND if test doesn't exist.
             """,
-            annotations = @Tool.Annotations(
+        annotations = @Tool.Annotations(
+                    title = "openonco_get_ecd",
                     readOnlyHint = true,
                     destructiveHint = false,
                     idempotentHint = true,
                     openWorldHint = false))
-    public String openonco_get_ecd(
+    public ToolResponse openonco_get_ecd(
             @ToolArg(description = "Test ID (e.g., 'ecd-1'). Takes precedence if both id and name provided.",
                     required = false)
             String id,
@@ -508,7 +527,9 @@ public class OpenOncoMCPServer {
         return safeExecute("openonco_get_ecd", () -> client.getEcd(id, name));
     }
 
-    @Tool(description = """
+    @Tool(
+        title = "openonco_get_hct",
+        description = """
             Get complete details of a single HCT (Hereditary Cancer Testing) test.
 
             Retrieves ALL fields for one test, including genes analyzed, cancer syndromes
@@ -518,12 +539,13 @@ public class OpenOncoMCPServer {
             Provide either 'id' (e.g., 'hct-1') or 'name' (e.g., 'myRisk').
             Returns JSON object with all fields, or error with NOT_FOUND if test doesn't exist.
             """,
-            annotations = @Tool.Annotations(
+        annotations = @Tool.Annotations(
+                    title = "openonco_get_hct",
                     readOnlyHint = true,
                     destructiveHint = false,
                     idempotentHint = true,
                     openWorldHint = false))
-    public String openonco_get_hct(
+    public ToolResponse openonco_get_hct(
             @ToolArg(description = "Test ID (e.g., 'hct-1'). Takes precedence if both id and name provided.",
                     required = false)
             String id,
@@ -536,7 +558,9 @@ public class OpenOncoMCPServer {
         return safeExecute("openonco_get_hct", () -> client.getHct(id, name));
     }
 
-    @Tool(description = """
+    @Tool(
+        title = "openonco_get_tds",
+        description = """
             Get complete details of a single TDS (Treatment Decision Support) test.
 
             Retrieves ALL fields for one test, including genes analyzed, biomarkers reported,
@@ -546,12 +570,13 @@ public class OpenOncoMCPServer {
             Provide either 'id' (e.g., 'tds-1') or 'name' (e.g., 'FoundationOne CDx').
             Returns JSON object with all fields, or error with NOT_FOUND if test doesn't exist.
             """,
-            annotations = @Tool.Annotations(
+        annotations = @Tool.Annotations(
+                    title = "openonco_get_tds",
                     readOnlyHint = true,
                     destructiveHint = false,
                     idempotentHint = true,
                     openWorldHint = false))
-    public String openonco_get_tds(
+    public ToolResponse openonco_get_tds(
             @ToolArg(description = "Test ID (e.g., 'tds-1'). Takes precedence if both id and name provided.",
                     required = false)
             String id,
@@ -568,7 +593,9 @@ public class OpenOncoMCPServer {
     // COMPARE TOOLS
     // ========================================
 
-    @Tool(description = """
+    @Tool(
+        title = "openonco_compare_mrd",
+        description = """
             Compare multiple MRD (Molecular Residual Disease) tests side-by-side.
 
             Returns key metrics for multiple tests in a tabular comparison format.
@@ -581,12 +608,13 @@ public class OpenOncoMCPServer {
             Default metrics: name, vendor, sensitivity, specificity, lod, initialTat,
             followUpTat, fdaStatus, reimbursement. Returns JSON array of test objects.
             """,
-            annotations = @Tool.Annotations(
+        annotations = @Tool.Annotations(
+                    title = "openonco_compare_mrd",
                     readOnlyHint = true,
                     destructiveHint = false,
                     idempotentHint = true,
                     openWorldHint = false))
-    public String openonco_compare_mrd(
+    public ToolResponse openonco_compare_mrd(
             @ToolArg(description = "Comma-separated test IDs to compare (e.g., 'mrd-1,mrd-2,mrd-3'). " +
                     "Takes precedence if both ids and names provided.",
                     required = false)
@@ -606,7 +634,9 @@ public class OpenOncoMCPServer {
         return safeExecute("openonco_compare_mrd", () -> client.compareMrd(ids, names, metrics));
     }
 
-    @Tool(description = """
+    @Tool(
+        title = "openonco_compare_ecd",
+        description = """
             Compare multiple ECD (Early Cancer Detection) tests side-by-side.
 
             Returns key metrics for multiple tests in a tabular comparison format.
@@ -619,12 +649,13 @@ public class OpenOncoMCPServer {
             Default metrics: name, vendor, testScope, sensitivity, specificity,
             stageISensitivity, ppv, npv, listPrice, fdaStatus. Returns JSON array.
             """,
-            annotations = @Tool.Annotations(
+        annotations = @Tool.Annotations(
+                    title = "openonco_compare_ecd",
                     readOnlyHint = true,
                     destructiveHint = false,
                     idempotentHint = true,
                     openWorldHint = false))
-    public String openonco_compare_ecd(
+    public ToolResponse openonco_compare_ecd(
             @ToolArg(description = "Comma-separated test IDs to compare (e.g., 'ecd-1,ecd-2,ecd-3'). " +
                     "Takes precedence if both ids and names provided.",
                     required = false)
@@ -644,7 +675,9 @@ public class OpenOncoMCPServer {
         return safeExecute("openonco_compare_ecd", () -> client.compareEcd(ids, names, metrics));
     }
 
-    @Tool(description = """
+    @Tool(
+        title = "openonco_compare_hct",
+        description = """
             Compare multiple HCT (Hereditary Cancer Testing) tests side-by-side.
 
             Returns key metrics for multiple tests in a tabular comparison format.
@@ -657,12 +690,13 @@ public class OpenOncoMCPServer {
             Default metrics: name, vendor, genesAnalyzed, cancerTypes, sampleType,
             tat, listPrice, fdaStatus. Returns JSON array of test objects.
             """,
-            annotations = @Tool.Annotations(
+        annotations = @Tool.Annotations(
+                    title = "openonco_compare_hct",
                     readOnlyHint = true,
                     destructiveHint = false,
                     idempotentHint = true,
                     openWorldHint = false))
-    public String openonco_compare_hct(
+    public ToolResponse openonco_compare_hct(
             @ToolArg(description = "Comma-separated test IDs to compare (e.g., 'hct-1,hct-2,hct-3'). " +
                     "Takes precedence if both ids and names provided.",
                     required = false)
@@ -682,7 +716,9 @@ public class OpenOncoMCPServer {
         return safeExecute("openonco_compare_hct", () -> client.compareHct(ids, names, metrics));
     }
 
-    @Tool(description = """
+    @Tool(
+        title = "openonco_compare_tds",
+        description = """
             Compare multiple TDS (Treatment Decision Support) tests side-by-side.
 
             Returns key metrics for multiple tests in a tabular comparison format.
@@ -695,12 +731,13 @@ public class OpenOncoMCPServer {
             Default metrics: name, vendor, productType, genesAnalyzed,
             fdaCompanionDxCount, tat, listPrice, fdaStatus. Returns JSON array.
             """,
-            annotations = @Tool.Annotations(
+        annotations = @Tool.Annotations(
+                    title = "openonco_compare_tds",
                     readOnlyHint = true,
                     destructiveHint = false,
                     idempotentHint = true,
                     openWorldHint = false))
-    public String openonco_compare_tds(
+    public ToolResponse openonco_compare_tds(
             @ToolArg(description = "Comma-separated test IDs to compare (e.g., 'tds-1,tds-2,tds-3'). " +
                     "Takes precedence if both ids and names provided.",
                     required = false)
@@ -724,7 +761,9 @@ public class OpenOncoMCPServer {
     // COUNT TOOLS (Aggregate)
     // ========================================
 
-    @Tool(description = """
+    @Tool(
+        title = "openonco_count_mrd",
+        description = """
             Count MRD (Molecular Residual Disease) tests with optional grouping.
 
             Get aggregate statistics about MRD tests. Use this to answer questions like
@@ -735,12 +774,13 @@ public class OpenOncoMCPServer {
 
             Use openonco_list_vendors first to see available vendors for filtering.
             """,
-            annotations = @Tool.Annotations(
+        annotations = @Tool.Annotations(
+                    title = "openonco_count_mrd",
                     readOnlyHint = true,
                     destructiveHint = false,
                     idempotentHint = true,
                     openWorldHint = false))
-    public String openonco_count_mrd(
+    public ToolResponse openonco_count_mrd(
             @ToolArg(description = "Field to group counts by. " +
                     "Valid options: vendor, approach, fdaStatus, requiresTumorTissue, reimbursement. " +
                     "Omit to get only the total count.",
@@ -759,7 +799,9 @@ public class OpenOncoMCPServer {
         return safeExecute("openonco_count_mrd", () -> client.countMrd(group_by, filter_vendor, filter_approach));
     }
 
-    @Tool(description = """
+    @Tool(
+        title = "openonco_count_ecd",
+        description = """
             Count ECD (Early Cancer Detection) tests with optional grouping.
 
             Get aggregate statistics about ECD tests. Use this to answer questions like
@@ -770,12 +812,13 @@ public class OpenOncoMCPServer {
 
             Tip: group_by='testScope' shows Single-cancer vs Multi-cancer breakdown.
             """,
-            annotations = @Tool.Annotations(
+        annotations = @Tool.Annotations(
+                    title = "openonco_count_ecd",
                     readOnlyHint = true,
                     destructiveHint = false,
                     idempotentHint = true,
                     openWorldHint = false))
-    public String openonco_count_ecd(
+    public ToolResponse openonco_count_ecd(
             @ToolArg(description = "Field to group counts by. " +
                     "Valid options: vendor, testScope, fdaStatus, reimbursement. " +
                     "Omit to get only the total count.",
@@ -794,7 +837,9 @@ public class OpenOncoMCPServer {
         return safeExecute("openonco_count_ecd", () -> client.countEcd(group_by, filter_vendor, filter_test_scope));
     }
 
-    @Tool(description = """
+    @Tool(
+        title = "openonco_count_hct",
+        description = """
             Count HCT (Hereditary Cancer Testing) tests with optional grouping.
 
             Get aggregate statistics about HCT tests. Use this to answer questions like
@@ -805,12 +850,13 @@ public class OpenOncoMCPServer {
 
             Tip: group_by='vendor' shows distribution across testing companies.
             """,
-            annotations = @Tool.Annotations(
+        annotations = @Tool.Annotations(
+                    title = "openonco_count_hct",
                     readOnlyHint = true,
                     destructiveHint = false,
                     idempotentHint = true,
                     openWorldHint = false))
-    public String openonco_count_hct(
+    public ToolResponse openonco_count_hct(
             @ToolArg(description = "Field to group counts by. " +
                     "Valid options: vendor, fdaStatus, reimbursement, sampleCategory. " +
                     "Omit to get only the total count.",
@@ -829,7 +875,9 @@ public class OpenOncoMCPServer {
                 client.countHct(group_by, filter_vendor, filter_fda_status));
     }
 
-    @Tool(description = """
+    @Tool(
+        title = "openonco_count_tds",
+        description = """
             Count TDS (Treatment Decision Support) tests with optional grouping.
 
             Get aggregate statistics about TDS tests. Use this to answer questions like
@@ -840,12 +888,13 @@ public class OpenOncoMCPServer {
 
             Tip: group_by='productType' shows Central Lab Service vs Laboratory IVD Kit.
             """,
-            annotations = @Tool.Annotations(
+        annotations = @Tool.Annotations(
+                    title = "openonco_count_tds",
                     readOnlyHint = true,
                     destructiveHint = false,
                     idempotentHint = true,
                     openWorldHint = false))
-    public String openonco_count_tds(
+    public ToolResponse openonco_count_tds(
             @ToolArg(description = "Field to group counts by. " +
                     "Valid options: vendor, productType, fdaStatus, approach, reimbursement. " +
                     "Omit to get only the total count.",
@@ -868,7 +917,9 @@ public class OpenOncoMCPServer {
     // LIST TOOLS
     // ========================================
 
-    @Tool(description = """
+    @Tool(
+        title = "openonco_list_vendors",
+        description = """
             List all vendors offering oncology diagnostic tests.
 
             Use this to discover available vendors before searching or filtering.
@@ -878,12 +929,13 @@ public class OpenOncoMCPServer {
             Returns JSON array of vendor names sorted alphabetically.
             Filter by category to see vendors in specific test types only.
             """,
-            annotations = @Tool.Annotations(
+        annotations = @Tool.Annotations(
+                    title = "openonco_list_vendors",
                     readOnlyHint = true,
                     destructiveHint = false,
                     idempotentHint = true,
                     openWorldHint = false))
-    public String openonco_list_vendors(
+    public ToolResponse openonco_list_vendors(
             @ToolArg(description = "Filter by test category. " +
                     "Values: 'mrd', 'ecd', 'hct', 'tds'. " +
                     "Omit to list vendors across all categories.",
@@ -893,7 +945,9 @@ public class OpenOncoMCPServer {
         return safeExecute("openonco_list_vendors", () -> client.listVendors(category));
     }
 
-    @Tool(description = """
+    @Tool(
+        title = "openonco_list_cancer_types",
+        description = """
             List all cancer types covered by oncology diagnostic tests.
 
             Use this to discover available cancer types before searching or filtering.
@@ -902,12 +956,13 @@ public class OpenOncoMCPServer {
             Returns JSON array of cancer type names sorted alphabetically.
             Filter by category to see cancer types in specific test types only.
             """,
-            annotations = @Tool.Annotations(
+        annotations = @Tool.Annotations(
+                    title = "openonco_list_cancer_types",
                     readOnlyHint = true,
                     destructiveHint = false,
                     idempotentHint = true,
                     openWorldHint = false))
-    public String openonco_list_cancer_types(
+    public ToolResponse openonco_list_cancer_types(
             @ToolArg(description = "Filter by test category. " +
                     "Values: 'mrd', 'ecd', 'hct', 'tds'. " +
                     "Omit to list cancer types across all categories.",
@@ -917,7 +972,9 @@ public class OpenOncoMCPServer {
         return safeExecute("openonco_list_cancer_types", () -> client.listCancerTypes(category));
     }
 
-    @Tool(description = """
+    @Tool(
+        title = "openonco_list_categories",
+        description = """
             List all test categories with metadata and current test counts.
 
             Use this FIRST to understand what data is available. Returns the four
@@ -928,12 +985,13 @@ public class OpenOncoMCPServer {
 
             This is a good starting point for users new to the OpenOnco data.
             """,
-            annotations = @Tool.Annotations(
+        annotations = @Tool.Annotations(
+                    title = "openonco_list_categories",
                     readOnlyHint = true,
                     destructiveHint = false,
                     idempotentHint = true,
                     openWorldHint = false))
-    public String openonco_list_categories() {
+    public ToolResponse openonco_list_categories() {
         return safeExecute("openonco_list_categories", () -> client.listCategories());
     }
 }
