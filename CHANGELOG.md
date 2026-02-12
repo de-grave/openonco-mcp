@@ -1,32 +1,62 @@
 # Changelog
 
-All notable changes to this project made by Claude will be documented in this file.
-
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+All notable changes to the OpenOnco MCP Server are documented here.
 
 ## [Unreleased]
 
-### Changed - 2026-02-01
-#### Correct Error handling with isError=true in response
+### Added
+- `.gitignore` file for build artifacts, IDE files, and OS files
+- PAP test coverage in `SearchToolsTest` and `DetailCompareToolsTest`
+- `pap_programs` table validation in `DuckDbServiceTest`
+- `CHANGELOG.md` for tracking changes
 
-  Changes Made
+### Changed
+- Updated README to reflect 21 tools (was 19), 5 categories (was 4)
+- Replaced all TRM references with HCT in README documentation
+- Added PAP tools and data model documentation to README
 
-  - `safeExecute` now either returns a proper ToolResponse on success, or Throws ToolCallException on failure
-    so Quarkus sets isError=true in response
-  - class `McpResponse` added
-  - `title` annotations added to all tools
+### Removed
+- `target/` directory from git tracking (89MB of build artifacts)
 
-### Changed - 2026-01-31
-#### Fix HCT cancerTypesAssessed Field Name Mismatch
+## [1.0.3] - 2026-02-07
 
-  HCT data uses `cancerTypesAssessed` but implementation code referenced `cancerTypes`, causing 4 test failures.
+### Added
+- Favicon for MCP Directory listing
+- MCP Directory submission requirements
 
-  Changes Made
+## [1.0.2] - 2026-02-05
 
-  - Added `cancerTypesAssessed` to `ARRAY_FIELDS` in `QueryBuilder.java` for proper array handling
-  - Updated `DEFAULT_HCT_METRICS` in `OpenOncoClient.java` to use `cancerTypesAssessed`
-  - Fixed `searchHct()` filter mapping to use `cancerTypesAssessed` instead of `cancerTypes`
-  - Rewrote `listCancerTypes()` to handle HCT's different field name vs other categories
-  - Updated `testCompareHct_WithCustomMetrics` test to use correct field name
+### Added
+- PAP (Patient Assistance Programs) category with `search_pap` and `get_pap` tools
+- `pap.json` data file with vendor financial assistance programs
+- Medicare/Medicaid eligibility filtering for PAP programs
 
+### Changed
+- Synced MCP data from OpenOnco main database
+
+## [1.0.1] - 2026-02-03
+
+### Changed
+- Replaced TRM (Treatment Response Monitoring) category with HCT (Hereditary Cancer Testing)
+- Added `hct.json` data file with 33 hereditary cancer tests
+- Added `search_hct`, `get_hct`, `compare_hct`, `count_hct` tools
+- Clarified MCP endpoints: recommend Streamable HTTP over legacy SSE
+- Added `quarkus-smallrye-health` for `/q/health` endpoint
+- Extended healthcheck timeout to 120s for Railway deployment
+- Skip validation for empty tables (TRM had 0 records during transition)
+
+### Fixed
+- Build uber-jar explicitly with exact filename for Railway
+- Use Dockerfile with explicit Java 21 instead of Nixpacks
+- Fixed runner jar path wildcard
+
+## [1.0.0] - 2026-01-28
+
+### Added
+- Initial release with 19 MCP tools
+- Four test categories: MRD, ECD, TRM, TDS
+- Search, Get, Compare, Count, and List tools
+- DuckDB in-memory database for fast queries
+- Quarkus MCP Server with SSE and stdio transport
+- Railway deployment configuration
+- Comprehensive test suite (SearchToolsTest, AggregateListToolsTest, DetailCompareToolsTest, DuckDbServiceTest, QueryBuilderTest)

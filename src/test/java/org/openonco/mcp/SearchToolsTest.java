@@ -26,7 +26,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Integration tests for the OpenOnco MCP search tools.
- * Tests all 4 search tools with various filter combinations.
+ * Tests all 5 search tools with various filter combinations.
  */
 @QuarkusTest
 class SearchToolsTest {
@@ -357,6 +357,58 @@ class SearchToolsTest {
             assertThat(result).contains("\"genesAnalyzed\":");
         }
         System.out.println("TDS search (with fields): " + countResults(result) + " results");
+    }
+
+    // ========================================
+    // PAP SEARCH TESTS
+    // ========================================
+
+    @Test
+    void testSearchPap_NoFilters() {
+        String result = client.searchPap(null, null, null, null, null, null);
+
+        assertThat(result).isNotNull();
+        assertThat(result).startsWith("[");
+        System.out.println("PAP search (no filters): " + countResults(result) + " results");
+    }
+
+    @Test
+    void testSearchPap_ByVendor() {
+        String result = client.searchPap("Natera", null, null, null, null, null);
+
+        assertThat(result).isNotNull();
+        if (!result.equals("[]")) {
+            assertThat(result.toLowerCase()).contains("natera");
+        }
+        System.out.println("PAP search (vendor=Natera): " + countResults(result) + " results");
+    }
+
+    @Test
+    void testSearchPap_ByMedicareEligible() {
+        String result = client.searchPap(null, true, null, null, null, null);
+
+        assertThat(result).isNotNull();
+        System.out.println("PAP search (medicare=true): " + countResults(result) + " results");
+    }
+
+    @Test
+    void testSearchPap_ByMedicaidEligible() {
+        String result = client.searchPap(null, null, true, null, null, null);
+
+        assertThat(result).isNotNull();
+        System.out.println("PAP search (medicaid=true): " + countResults(result) + " results");
+    }
+
+    @Test
+    void testSearchPap_WithSpecificFields() {
+        String result = client.searchPap(null, null, null, "id,vendorName,programName", 10, null);
+
+        assertThat(result).isNotNull();
+        if (!result.equals("[]")) {
+            assertThat(result).contains("\"id\":");
+            assertThat(result).contains("\"vendorName\":");
+        }
+        System.out.println("PAP search (with fields): " + countResults(result) + " results");
     }
 
     // ========================================

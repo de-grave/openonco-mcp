@@ -1,9 +1,0 @@
-/Users/adickinson/Documents/GitHub/openonco-mcp/src/main/java/org/acme/GreetingResource.java
-/Users/adickinson/Documents/GitHub/openonco-mcp/src/main/java/org/openonco/client/OpenOncoClient.java
-/Users/adickinson/Documents/GitHub/openonco-mcp/src/main/java/org/openonco/db/DuckDbService.java
-/Users/adickinson/Documents/GitHub/openonco-mcp/src/main/java/org/openonco/db/OpenOncoException.java
-/Users/adickinson/Documents/GitHub/openonco-mcp/src/main/java/org/openonco/db/QueryBuilder.java
-/Users/adickinson/Documents/GitHub/openonco-mcp/src/main/java/org/openonco/db/QueryResult.java
-/Users/adickinson/Documents/GitHub/openonco-mcp/src/main/java/org/openonco/mcp/McpCliConfigSource.java
-/Users/adickinson/Documents/GitHub/openonco-mcp/src/main/java/org/openonco/mcp/OpenOncoMCPServer.java
-/Users/adickinson/Documents/GitHub/openonco-mcp/src/main/java/org/openonco/mcp/SharedApplication.java

@@ -71,6 +71,13 @@ class DuckDbServiceTest {
     }
 
     @Test
+    void testPapTableLoaded() {
+        int count = service.getTableRowCount("pap_programs");
+        assertThat(count).isGreaterThan(0);
+        System.out.println("PAP programs count: " + count);
+    }
+
+    @Test
     void testQueryByIdReturnsRecord() {
         List<Map<String, Object>> results = service.executeQuery(
                 "SELECT * FROM mrd_tests WHERE id = ?", "mrd-1"
@@ -202,17 +209,20 @@ class DuckDbServiceTest {
         int ecdCount = service.getTableRowCount("ecd_tests");
         int hctCount = service.getTableRowCount("hct_tests");
         int tdsCount = service.getTableRowCount("tds_tests");
+        int papCount = service.getTableRowCount("pap_programs");
 
         System.out.println("=== OpenOnco Database Summary ===");
         System.out.println("MRD tests: " + mrdCount);
         System.out.println("ECD tests: " + ecdCount);
         System.out.println("HCT tests: " + hctCount);
         System.out.println("TDS tests: " + tdsCount);
-        System.out.println("Total: " + (mrdCount + ecdCount + hctCount + tdsCount));
+        System.out.println("PAP programs: " + papCount);
+        System.out.println("Total: " + (mrdCount + ecdCount + hctCount + tdsCount + papCount));
 
         assertThat(mrdCount).as("MRD table").isGreaterThan(0);
         assertThat(ecdCount).as("ECD table").isGreaterThan(0);
         assertThat(hctCount).as("HCT table").isGreaterThan(0);
         assertThat(tdsCount).as("TDS table").isGreaterThan(0);
+        assertThat(papCount).as("PAP table").isGreaterThan(0);
     }
 }
