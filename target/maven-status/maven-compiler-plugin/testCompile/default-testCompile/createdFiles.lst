@@ -1,7 +1,0 @@
-org/openonco/db/DuckDbServiceTest.class
-org/openonco/mcp/SearchToolsTest.class
-org/acme/GreetingResourceTest.class
-org/openonco/db/QueryBuilderTest.class
-org/openonco/mcp/DetailCompareToolsTest.class
-org/openonco/mcp/AggregateListToolsTest.class
-org/acme/GreetingResourceIT.class

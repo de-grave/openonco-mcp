@@ -4,8 +4,8 @@ A Model Context Protocol (MCP) server that provides AI assistants with tools to 
 
 ## Features
 
-- **19 specialized tools** for oncology diagnostic test discovery
-- **Four test categories**: MRD, ECD, TRM, and TDS
+- **21 specialized tools** for oncology diagnostic test discovery
+- **Five test categories**: MRD, ECD, HCT, TDS, and PAP
 - **Rich filtering**: By vendor, cancer type, sensitivity, FDA status, price, and more
 - **Comparison tools**: Side-by-side test comparisons with customizable metrics
 - **No authentication required**: Public read-only access to test data
@@ -41,14 +41,15 @@ A Model Context Protocol (MCP) server that provides AI assistants with tools to 
 
 ## Overview
 
-OpenOnco MCP Server exposes 19 tools for searching, filtering, comparing, and analyzing oncology diagnostic tests across four categories:
+OpenOnco MCP Server exposes 21 tools for searching, filtering, comparing, and analyzing oncology diagnostic tests across five categories:
 
 | Category | Full Name | Purpose |
 |----------|-----------|---------|
 | **MRD** | Molecular Residual Disease | Detect residual cancer after treatment via ctDNA |
 | **ECD** | Early Cancer Detection | Screen for cancer in asymptomatic individuals |
-| **TRM** | Treatment Response Monitoring | Track treatment effectiveness via ctDNA changes |
+| **HCT** | Hereditary Cancer Testing | Identify inherited genetic mutations that increase cancer risk |
 | **TDS** | Treatment Decision Support | Guide treatment decisions via genomic profiling |
+| **PAP** | Patient Assistance Programs | Vendor financial assistance and copay programs |
 
 ## Quick Start
 
@@ -133,11 +134,14 @@ max_price: 1000               # Maximum list price
 min_specificity: 99           # Minimum specificity %
 ```
 
-#### `openonco_search_trm`
-Search TRM tests. Excludes discontinued by default.
+#### `openonco_search_hct`
+Search HCT tests by vendor, cancer type, genes analyzed, and FDA status.
 
 ```
-include_discontinued: true    # Include legacy products
+vendor: "Myriad"              # Partial match, case-insensitive
+cancer_type: "Breast"         # Matches in cancerTypes array
+min_genes: 30                 # Minimum genes analyzed
+fda_status: "FDA"             # FDA status filter
 ```
 
 #### `openonco_search_tds`
@@ -149,11 +153,20 @@ has_fda_cdx: true             # Has FDA companion diagnostics
 product_type: "Central Lab Service"
 ```
 
+#### `openonco_search_pap`
+Search patient assistance programs by vendor, Medicare/Medicaid eligibility.
+
+```
+vendor: "Natera"              # Partial match, case-insensitive
+medicare: true                # Medicare-eligible programs
+medicaid: true                # Medicaid-eligible programs
+```
+
 ### Get Tools
 
 Retrieve complete details for a single test. Returns JSON object.
 
-#### `openonco_get_mrd`, `openonco_get_ecd`, `openonco_get_trm`, `openonco_get_tds`
+#### `openonco_get_mrd`, `openonco_get_ecd`, `openonco_get_hct`, `openonco_get_tds`, `openonco_get_pap`
 
 ```
 id: "mrd-1"                   # By ID (takes precedence)
@@ -164,7 +177,7 @@ name: "Signatera"             # Or by name (case-insensitive)
 
 Compare multiple tests side-by-side. Returns JSON array with selected metrics.
 
-#### `openonco_compare_mrd`, `openonco_compare_ecd`, `openonco_compare_trm`, `openonco_compare_tds`
+#### `openonco_compare_mrd`, `openonco_compare_ecd`, `openonco_compare_hct`, `openonco_compare_tds`
 
 ```
 ids: "mrd-1,mrd-2,mrd-3"      # Comma-separated IDs
@@ -175,14 +188,14 @@ metrics: "name,vendor,sensitivity"  # Custom metrics (optional)
 **Default metrics per category:**
 - MRD: name, vendor, sensitivity, specificity, lod, initialTat, followUpTat, fdaStatus, reimbursement
 - ECD: name, vendor, testScope, sensitivity, specificity, stageISensitivity, ppv, npv, listPrice, fdaStatus
-- TRM: name, vendor, approach, sensitivity, leadTimeVsImaging, lod, fdaStatus, reimbursement
+- HCT: name, vendor, genesAnalyzed, cancerTypes, sampleCategory, tat, listPrice, fdaStatus
 - TDS: name, vendor, productType, genesAnalyzed, fdaCompanionDxCount, tat, listPrice, fdaStatus
 
 ### Count Tools
 
 Get aggregate statistics. Returns JSON object with total and optional grouped counts.
 
-#### `openonco_count_mrd`, `openonco_count_ecd`, `openonco_count_trm`, `openonco_count_tds`
+#### `openonco_count_mrd`, `openonco_count_ecd`, `openonco_count_hct`, `openonco_count_tds`
 
 ```
 group_by: "vendor"            # Group counts by field
@@ -204,7 +217,7 @@ filter_vendor: "Natera"       # Pre-filter before counting
 **Valid group_by fields:**
 - MRD: vendor, approach, fdaStatus, requiresTumorTissue, reimbursement
 - ECD: vendor, testScope, fdaStatus, reimbursement
-- TRM: vendor, approach, fdaStatus, reimbursement, isDiscontinued
+- HCT: vendor, fdaStatus, reimbursement, sampleCategory
 - TDS: vendor, productType, fdaStatus, approach, reimbursement
 
 ### List Tools
@@ -215,7 +228,7 @@ Discover available filter values.
 List all vendor names. Filter by category optionally.
 
 ```
-category: "mrd"               # Optional: mrd, ecd, trm, tds
+category: "mrd"               # Optional: mrd, ecd, hct, tds
 ```
 
 #### `openonco_list_cancer_types`
@@ -272,12 +285,14 @@ Get metadata about all four test categories including current test counts.
 | ppv, npv | Predictive values |
 | listPrice | Test price in USD |
 
-### TRM-Specific Fields
+### HCT-Specific Fields
 
 | Field | Description |
 |-------|-------------|
-| leadTimeVsImaging | Days earlier than imaging |
-| isDiscontinued | Product status (boolean) |
+| genesAnalyzed | Number of genes in the panel |
+| sampleCategory | Sample type (Blood, Saliva, etc.) |
+| tat | Turnaround time |
+| listPrice | Test price in USD |
 
 ### TDS-Specific Fields
 
@@ -287,6 +302,17 @@ Get metadata about all four test categories including current test counts.
 | genesAnalyzed | Number of genes |
 | fdaCompanionDxCount | FDA companion diagnostic indications |
 | biomarkersReported | ["SNVs", "Indels", "CNAs", ...] |
+
+### PAP-Specific Fields
+
+| Field | Description |
+|-------|-------------|
+| vendorName | Vendor offering the program |
+| programName | Assistance program name |
+| medicareEligible | Whether Medicare patients qualify |
+| medicaidEligible | Whether Medicaid patients qualify |
+| phone | Contact phone number |
+| applicationUrl | URL to apply |
 
 ## Error Handling
 
@@ -316,7 +342,7 @@ All tools return structured JSON errors:
 MCP Client (Claude, etc.)
         |
         v
-OpenOncoMCPServer (19 @Tool methods)
+OpenOncoMCPServer (21 @Tool methods)
         |
         v
 OpenOncoClient (business logic)
@@ -325,7 +351,7 @@ OpenOncoClient (business logic)
 DuckDbService (in-memory DuckDB)
         |
         v
-JSON Data Files (mrd.json, ecd.json, trm.json, tds.json)
+JSON Data Files (mrd.json, ecd.json, hct.json, tds.json, pap.json)
 ```
 
 ## Development
@@ -341,7 +367,7 @@ src/main/java/org/openonco/
   db/OpenOncoException.java      # Custom exceptions
 
 src/main/resources/
-  mrd.json, ecd.json, trm.json, tds.json  # Data files
+  mrd.json, ecd.json, hct.json, tds.json, pap.json  # Data files
 ```
 
 ### Running Tests
