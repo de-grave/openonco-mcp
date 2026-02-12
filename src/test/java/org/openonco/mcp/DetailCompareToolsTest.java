@@ -26,7 +26,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Integration tests for the OpenOnco MCP get and compare tools.
- * Tests all 8 detail/compare tools.
+ * Tests all 10 detail/compare tools (4 get + 1 get_pap + 4 compare + edge cases).
  */
 @QuarkusTest
 class DetailCompareToolsTest {
@@ -165,6 +165,53 @@ class DetailCompareToolsTest {
         assertThat(result).contains("\"error\": true");
         assertThat(result).contains("\"code\": \"NOT_FOUND\"");
         System.out.println("getTds not found: error response correct");
+    }
+
+    // ========================================
+    // GET PAP TESTS
+    // ========================================
+
+    @Test
+    void testGetPap_ById() {
+        String result = client.getPap("pap-1", null);
+
+        assertThat(result).isNotNull();
+        assertThat(result).startsWith("{");
+        assertThat(result).contains("\"id\": \"pap-1\"");
+        System.out.println("getPap by id: success");
+    }
+
+    @Test
+    void testGetPap_ByName() {
+        // Search for a known vendor first
+        String searchResult = client.searchPap(null, null, null, "vendorName", 1, null);
+        String knownVendor = extractFirstValue(searchResult, "vendorName");
+
+        if (knownVendor != null) {
+            String result = client.getPap(null, knownVendor);
+
+            assertThat(result).isNotNull();
+            assertThat(result).startsWith("{");
+            System.out.println("getPap by name '" + knownVendor + "': success");
+        }
+    }
+
+    @Test
+    void testGetPap_NotFound() {
+        String result = client.getPap("pap-nonexistent", null);
+
+        assertThat(result).contains("\"error\": true");
+        assertThat(result).contains("\"code\": \"NOT_FOUND\"");
+        System.out.println("getPap not found: error response correct");
+    }
+
+    @Test
+    void testGetPap_MissingParameter() {
+        String result = client.getPap(null, null);
+
+        assertThat(result).contains("\"error\": true");
+        assertThat(result).contains("\"code\": \"MISSING_PARAMETER\"");
+        System.out.println("getPap missing parameter: error response correct");
     }
 
     // ========================================
