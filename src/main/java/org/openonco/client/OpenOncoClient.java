@@ -53,7 +53,7 @@ public class OpenOncoClient {
     );
 
     private static final List<String> DEFAULT_HCT_METRICS = List.of(
-            "name", "vendor", "genesAnalyzed", "cancerTypes", "sampleCategory",
+            "name", "vendor", "genesAnalyzed", "cancerTypesAssessed", "sampleCategory",
             "tat", "listPrice", "fdaStatus"
     );
 
@@ -211,7 +211,7 @@ public class OpenOncoClient {
         Map<String, Object> filters = new LinkedHashMap<>();
 
         if (vendor != null) filters.put("vendor", vendor);
-        if (cancerType != null) filters.put("cancerTypes", cancerType);
+        if (cancerType != null) filters.put("cancerTypesAssessed", cancerType);
         if (fdaStatus != null) filters.put("fdaStatus", fdaStatus);
         if (minGenes != null) filters.put("min_genesAnalyzed", minGenes);
 
@@ -322,7 +322,7 @@ public class OpenOncoClient {
         boolean hasName = name != null && !name.isBlank();
 
         if (!hasId && !hasName) {
-            return errorResponse("MISSING_PARAMETER",
+            errorResponse("MISSING_PARAMETER",
                     "Either 'id' or 'name' must be provided",
                     "Use " + searchTool + " to find available programs");
         }
@@ -349,7 +349,7 @@ public class OpenOncoClient {
 
         // Handle not found
         if (results.isEmpty()) {
-            return errorResponse("NOT_FOUND",
+            errorResponse("NOT_FOUND",
                     "No " + category + " program found with " + lookupType + " '" + lookupValue + "'",
                     "Use " + searchTool + " to find available programs");
         }
@@ -415,7 +415,7 @@ public class OpenOncoClient {
         boolean hasName = name != null && !name.isBlank();
 
         if (!hasId && !hasName) {
-            return errorResponse("MISSING_PARAMETER",
+            errorResponse("MISSING_PARAMETER",
                     "Either 'id' or 'name' must be provided",
                     "Use " + searchTool + " to find available tests");
         }
@@ -441,7 +441,7 @@ public class OpenOncoClient {
 
         // Handle not found
         if (results.isEmpty()) {
-            return errorResponse("NOT_FOUND",
+            errorResponse("NOT_FOUND",
                     "No " + category + " test found with " + lookupType + " '" + lookupValue + "'",
                     "Use " + searchTool + " to find available tests");
         }
@@ -512,7 +512,7 @@ public class OpenOncoClient {
         boolean hasNames = names != null && !names.isBlank();
 
         if (!hasIds && !hasNames) {
-            return errorResponse("MISSING_PARAMETER",
+            errorResponse("MISSING_PARAMETER",
                     "Either 'ids' or 'names' must be provided",
                     "Provide comma-separated list like 'mrd-1,mrd-2' or 'Signatera,Guardant Reveal'");
         }
@@ -573,7 +573,7 @@ public class OpenOncoClient {
     /**
      * Create an error response JSON object.
      */
-    private String errorResponse(String code, String message, String suggestion) {
+    private void errorResponse(String code, String message, String suggestion) {
         StringBuilder json = new StringBuilder("{");
         json.append("\"error\": true, ");
         json.append("\"code\": \"").append(code).append("\", ");
@@ -582,7 +582,7 @@ public class OpenOncoClient {
             json.append(", \"suggestion\": \"").append(escapeJson(suggestion)).append("\"");
         }
         json.append("}");
-        return json.toString();
+        throw new RuntimeException(json.toString());
     }
 
     /**
@@ -792,7 +792,7 @@ public class OpenOncoClient {
                 String validOptions = validGroupByFields.stream()
                         .sorted()
                         .collect(Collectors.joining(", "));
-                return errorResponse("INVALID_PARAMETER",
+                errorResponse("INVALID_PARAMETER",
                         "Invalid group_by field '" + trimmedGroupBy + "' for " + category + " tests",
                         "Valid group_by options: " + validOptions);
             }
@@ -868,7 +868,29 @@ public class OpenOncoClient {
      * @return JSON array of distinct cancer types, sorted alphabetically
      */
     public String listCancerTypes(String category) {
-        return listDistinctField("cancerTypes", category, true);
+        // HCT uses cancerTypesAssessed, others use cancerTypes
+        if (category != null && !category.isBlank()) {
+            String normalizedCategory = category.trim().toLowerCase();
+            if (!CATEGORY_TABLES.containsKey(normalizedCategory)) {
+                errorResponse("INVALID_PARAMETER",
+                        "Invalid category '" + category + "'",
+                        "Valid categories: mrd, ecd, hct, tds");
+            }
+            String field = normalizedCategory.equals("hct") ? "cancerTypesAssessed" : "cancerTypes";
+            String table = CATEGORY_TABLES.get(normalizedCategory);
+            List<String> values = getDistinctValues(table, field, true);
+            return formatAsStringArray(values);
+        }
+
+        // Query all tables with their respective field names
+        List<String> values = new java.util.ArrayList<>();
+        for (Map.Entry<String, String> entry : CATEGORY_TABLES.entrySet()) {
+            String cat = entry.getKey();
+            String table = entry.getValue();
+            String field = cat.equals("hct") ? "cancerTypesAssessed" : "cancerTypes";
+            values.addAll(getDistinctValues(table, field, true));
+        }
+        return formatAsStringArray(values.stream().distinct().sorted().toList());
     }
 
     /**
@@ -884,7 +906,7 @@ public class OpenOncoClient {
         if (category != null && !category.isBlank()) {
             String normalizedCategory = category.trim().toLowerCase();
             if (!CATEGORY_TABLES.containsKey(normalizedCategory)) {
-                return errorResponse("INVALID_PARAMETER",
+                errorResponse("INVALID_PARAMETER",
                         "Invalid category '" + category + "'",
                         "Valid categories: mrd, ecd, hct, tds");
             }

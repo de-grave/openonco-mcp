@@ -23,6 +23,7 @@ import org.junit.jupiter.api.Test;
 import org.openonco.client.OpenOncoClient;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 /**
  * Integration tests for the OpenOnco MCP get and compare tools.
@@ -69,21 +70,21 @@ class DetailCompareToolsTest {
 
     @Test
     void testGetMrd_NotFound() {
-        String result = client.getMrd("mrd-nonexistent", null);
-
-        assertThat(result).contains("\"error\": true");
-        assertThat(result).contains("\"code\": \"NOT_FOUND\"");
-        assertThat(result).contains("\"suggestion\":");
+        assertThatThrownBy(() -> client.getMrd("mrd-nonexistent", null))
+            .isInstanceOf(RuntimeException.class)
+            .hasMessageContaining("\"error\": true")
+            .hasMessageContaining("\"code\": \"NOT_FOUND\"")
+            .hasMessageContaining("\"suggestion\":");
         System.out.println("getMrd not found: error response correct");
     }
 
     @Test
     void testGetMrd_MissingParameter() {
-        String result = client.getMrd(null, null);
-
-        assertThat(result).contains("\"error\": true");
-        assertThat(result).contains("\"code\": \"MISSING_PARAMETER\"");
-        assertThat(result).contains("Either 'id' or 'name' must be provided");
+        assertThatThrownBy(() -> client.getMrd(null, null))
+            .isInstanceOf(RuntimeException.class)
+            .hasMessageContaining("\"error\": true")
+            .hasMessageContaining("\"code\": \"MISSING_PARAMETER\"")
+            .hasMessageContaining("Either 'id' or 'name' must be provided");
         System.out.println("getMrd missing parameter: error response correct");
     }
 
@@ -114,10 +115,10 @@ class DetailCompareToolsTest {
 
     @Test
     void testGetEcd_NotFound() {
-        String result = client.getEcd("ecd-nonexistent", null);
-
-        assertThat(result).contains("\"error\": true");
-        assertThat(result).contains("\"code\": \"NOT_FOUND\"");
+        assertThatThrownBy(() -> client.getEcd("ecd-nonexistent", null))
+            .isInstanceOf(RuntimeException.class)
+            .hasMessageContaining("\"error\": true")
+            .hasMessageContaining("\"code\": \"NOT_FOUND\"");
         System.out.println("getEcd not found: error response correct");
     }
 
@@ -137,10 +138,10 @@ class DetailCompareToolsTest {
 
     @Test
     void testGetHct_NotFound() {
-        String result = client.getHct("hct-nonexistent", null);
-
-        assertThat(result).contains("\"error\": true");
-        assertThat(result).contains("\"code\": \"NOT_FOUND\"");
+        assertThatThrownBy(() -> client.getHct("hct-nonexistent", null))
+            .isInstanceOf(RuntimeException.class)
+            .hasMessageContaining("\"error\": true")
+            .hasMessageContaining("\"code\": \"NOT_FOUND\"");
         System.out.println("getHct not found: error response correct");
     }
 
@@ -160,10 +161,10 @@ class DetailCompareToolsTest {
 
     @Test
     void testGetTds_NotFound() {
-        String result = client.getTds("tds-nonexistent", null);
-
-        assertThat(result).contains("\"error\": true");
-        assertThat(result).contains("\"code\": \"NOT_FOUND\"");
+        assertThatThrownBy(() -> client.getTds("tds-nonexistent", null))
+            .isInstanceOf(RuntimeException.class)
+            .hasMessageContaining("\"error\": true")
+            .hasMessageContaining("\"code\": \"NOT_FOUND\"");
         System.out.println("getTds not found: error response correct");
     }
 
@@ -270,10 +271,10 @@ class DetailCompareToolsTest {
 
     @Test
     void testCompareMrd_MissingParameter() {
-        String result = client.compareMrd(null, null, null);
-
-        assertThat(result).contains("\"error\": true");
-        assertThat(result).contains("\"code\": \"MISSING_PARAMETER\"");
+        assertThatThrownBy(() -> client.compareMrd(null, null, null))
+            .isInstanceOf(RuntimeException.class)
+            .hasMessageContaining("\"error\": true")
+            .hasMessageContaining("\"code\": \"MISSING_PARAMETER\"");
         System.out.println("compareMrd missing parameter: error response correct");
     }
 
@@ -343,11 +344,11 @@ class DetailCompareToolsTest {
 
     @Test
     void testCompareHct_WithCustomMetrics() {
-        String result = client.compareHct("hct-1,hct-2", null, "name,vendor,cancerTypes");
+        String result = client.compareHct("hct-1,hct-2", null, "name,vendor,cancerTypesAssessed");
 
         assertThat(result).isNotNull();
         assertThat(result).contains("\"name\":");
-        assertThat(result).contains("\"cancerTypes\":");
+        assertThat(result).contains("\"cancerTypesAssessed\":");
         System.out.println("compareHct with custom metrics: correct");
     }
 
@@ -396,10 +397,10 @@ class DetailCompareToolsTest {
 
     @Test
     void testGet_BlankId() {
-        String result = client.getMrd("   ", null);
-
-        assertThat(result).contains("\"error\": true");
-        assertThat(result).contains("\"code\": \"MISSING_PARAMETER\"");
+        assertThatThrownBy(() -> client.getMrd("   ", null))
+            .isInstanceOf(RuntimeException.class)
+            .hasMessageContaining("\"error\": true")
+            .hasMessageContaining("\"code\": \"MISSING_PARAMETER\"");
         System.out.println("get blank id: treated as missing");
     }
 

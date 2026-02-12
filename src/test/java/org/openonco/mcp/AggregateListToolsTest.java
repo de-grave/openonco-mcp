@@ -23,6 +23,7 @@ import org.junit.jupiter.api.Test;
 import org.openonco.client.OpenOncoClient;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 /**
  * Integration tests for the OpenOnco MCP count and list tools.
@@ -88,12 +89,12 @@ class AggregateListToolsTest {
 
     @Test
     void testCountMrd_InvalidGroupBy() {
-        String result = client.countMrd("invalidField", null, null);
-
-        assertThat(result).contains("\"error\": true");
-        assertThat(result).contains("\"code\": \"INVALID_PARAMETER\"");
-        assertThat(result).contains("Invalid group_by field");
-        assertThat(result).contains("Valid group_by options:");
+        assertThatThrownBy(() -> client.countMrd("invalidField", null, null))
+            .isInstanceOf(RuntimeException.class)
+            .hasMessageContaining("\"error\": true")
+            .hasMessageContaining("\"code\": \"INVALID_PARAMETER\"")
+            .hasMessageContaining("Invalid group_by field")
+            .hasMessageContaining("Valid group_by options:");
         System.out.println("countMrd invalid group_by: error response correct");
     }
 
@@ -202,10 +203,10 @@ class AggregateListToolsTest {
 
     @Test
     void testCountTds_InvalidGroupBy() {
-        String result = client.countTds("cancerTypes", null, null);
-
-        assertThat(result).contains("\"error\": true");
-        assertThat(result).contains("Invalid group_by field");
+        assertThatThrownBy(() -> client.countTds("cancerTypes", null, null))
+            .isInstanceOf(RuntimeException.class)
+            .hasMessageContaining("\"error\": true")
+            .hasMessageContaining("Invalid group_by field");
         System.out.println("countTds invalid group_by: error response correct");
     }
 
@@ -263,11 +264,11 @@ class AggregateListToolsTest {
 
     @Test
     void testListVendors_InvalidCategory() {
-        String result = client.listVendors("invalid");
-
-        assertThat(result).contains("\"error\": true");
-        assertThat(result).contains("\"code\": \"INVALID_PARAMETER\"");
-        assertThat(result).contains("Valid categories: mrd, ecd, hct, tds");
+        assertThatThrownBy(() -> client.listVendors("invalid"))
+            .isInstanceOf(RuntimeException.class)
+            .hasMessageContaining("\"error\": true")
+            .hasMessageContaining("\"code\": \"INVALID_PARAMETER\"")
+            .hasMessageContaining("Valid categories: mrd, ecd, hct, tds");
         System.out.println("listVendors invalid category: error response correct");
     }
 
@@ -325,10 +326,10 @@ class AggregateListToolsTest {
 
     @Test
     void testListCancerTypes_InvalidCategory() {
-        String result = client.listCancerTypes("xyz");
-
-        assertThat(result).contains("\"error\": true");
-        assertThat(result).contains("Invalid category");
+        assertThatThrownBy(() -> client.listCancerTypes("xyz"))
+            .isInstanceOf(RuntimeException.class)
+            .hasMessageContaining("\"error\": true")
+            .hasMessageContaining("Invalid category");
         System.out.println("listCancerTypes invalid category: error response correct");
     }
 

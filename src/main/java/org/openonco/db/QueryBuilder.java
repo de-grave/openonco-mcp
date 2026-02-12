@@ -40,6 +40,7 @@ public final class QueryBuilder {
     // Fields that are arrays in the JSON data (use list_contains for filtering)
     private static final Set<String> ARRAY_FIELDS = Set.of(
             "cancerTypes",
+            "cancerTypesAssessed",  // HCT uses this name
             "clinicalSettings",
             "biomarkersReported"
     );
